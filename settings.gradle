@@ -1,3 +1,4 @@
+include ':ClassroomHelper'
 include ':edusdk-impl'
 include ':edusdk-api'
 include ':app', ':base', 'sdk', ':log', ':timeline', ':whiteboard'

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" filepath="$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ClassroomHelper/AgoraEducation.ClassroomHelper.iml" filepath="$PROJECT_DIR$/.idea/modules/ClassroomHelper/AgoraEducation.ClassroomHelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" filepath="$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" />
