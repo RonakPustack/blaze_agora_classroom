@@ -24,6 +24,7 @@ import io.agora.education.api.room.data.RoomCreateOptions;
 import io.agora.education.api.util.CryptoUtil;
 import io.agora.education.service.bean.response.AppConfigRes;
 import kotlin.text.Charsets;
+import com.github.RonakPustack.ClassroomHelper;
 
 public class EduApplication extends Application {
     private static final String TAG = "EduApplication";
@@ -33,6 +34,9 @@ public class EduApplication extends Application {
     private AppConfigRes config;
 
     private EduManager eduManager;
+
+
+
 
     @Override
     public void onCreate() {

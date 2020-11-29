@@ -1,8 +1,8 @@
 package com.github.RonakPustack;
 
-class ClassroomHelper {
+public class ClassroomHelper {
 
-    void printRonak(){
+    public static void printRonak(){
         System.out.println("JAVA");
     }
 
