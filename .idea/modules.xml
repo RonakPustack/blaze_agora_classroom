@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" filepath="$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" filepath="$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" filepath="$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" filepath="$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" filepath="$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/AgoraEducation.sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/AgoraEducation.sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/timeline/AgoraEducation.timeline.iml" filepath="$PROJECT_DIR$/.idea/modules/timeline/AgoraEducation.timeline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/whiteboard/AgoraEducation.whiteboard.iml" filepath="$PROJECT_DIR$/.idea/modules/whiteboard/AgoraEducation.whiteboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blaze_agora_classroom-master.iml" filepath="$PROJECT_DIR$/blaze_agora_classroom-master.iml" />
+    </modules>
+  </component>
+</project>
