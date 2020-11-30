@@ -5,6 +5,7 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+
+import com.github.RonakPustack.ClassroomHelper;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -62,14 +65,14 @@ public class MainActivity extends BaseActivity {
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
 
-    @BindView(R.id.et_room_name)
-    protected EditText et_room_name;
-    @BindView(R.id.et_your_name)
-    protected EditText et_your_name;
-    @BindView(R.id.et_room_type)
-    protected EditText et_room_type;
-    @BindView(R.id.card_room_type)
-    protected CardView card_room_type;
+//    @BindView(R.id.et_room_name)
+//    protected EditText et_room_name;
+//    @BindView(R.id.et_your_name)
+//    protected EditText et_your_name;
+//    @BindView(R.id.et_room_type)
+//    protected EditText et_room_type;
+//    @BindView(R.id.card_room_type)
+//    protected CardView card_room_type;
 
     private String url;
 
@@ -80,16 +83,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        joinChannelAttempt(
+                "test_room", "test_user", "Small Classroom"
+        );
     }
 
     @Override
     protected void initView() {
         new PolicyDialog().show(getSupportFragmentManager(), null);
-        if (BuildConfig.DEBUG) {
-            et_room_name.setText("123");
-            et_room_name.setSelection(et_room_name.length());
-            et_your_name.setText("123");
-        }
+//        if (BuildConfig.DEBUG) {
+//            et_room_name.setText("123");
+//            et_room_name.setSelection(et_room_name.length());
+//            et_your_name.setText("123");
+//        }
     }
 
     @Override
@@ -103,7 +109,7 @@ public class MainActivity extends BaseActivity {
         }
         switch (requestCode) {
             case REQUEST_CODE_RTC:
-                start();
+//                start();
                 break;
             default:
                 break;
@@ -120,82 +126,64 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.iv_setting, R.id.et_room_type, R.id.btn_join, R.id.tv_one2one, R.id.tv_small_class,
-            R.id.tv_large_class, R.id.tv_breakout_class})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_setting:
-                startActivity(new Intent(this, SettingActivity.class));
-                break;
-            case R.id.btn_join:
-                if (AppUtil.isFastClick()) {
-                    return;
-                }
-                if (AppUtil.checkAndRequestAppPermission(this, new String[]{
-                        Manifest.permission.RECORD_AUDIO,
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                }, REQUEST_CODE_RTC)) {
-                    start();
-                }
-                break;
-            case R.id.tv_one2one:
-                et_room_type.setText(R.string.one2one_class);
-                card_room_type.setVisibility(View.GONE);
-                break;
-            case R.id.tv_small_class:
-                et_room_type.setText(R.string.small_class);
-                card_room_type.setVisibility(View.GONE);
-                break;
-            case R.id.tv_large_class:
-                et_room_type.setText(R.string.large_class);
-                card_room_type.setVisibility(View.GONE);
-                break;
-            case R.id.tv_breakout_class:
-                et_room_type.setText(R.string.breakout);
-                card_room_type.setVisibility(View.GONE);
-                break;
-            default:
-                break;
-        }
-    }
+//    @OnClick({R.id.iv_setting, R.id.et_room_type, R.id.btn_join, R.id.tv_one2one, R.id.tv_small_class,
+//            R.id.tv_large_class, R.id.tv_breakout_class})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.iv_setting:
+//                startActivity(new Intent(this, SettingActivity.class));
+//                break;
+//            case R.id.btn_join:
+//                if (AppUtil.isFastClick()) {
+//                    return;
+//                }
+//                if (AppUtil.checkAndRequestAppPermission(this, new String[]{
+//                        Manifest.permission.RECORD_AUDIO,
+//                        Manifest.permission.CAMERA,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+//                }, REQUEST_CODE_RTC)) {
+//                    start();
+//                }
+//                break;
+//            case R.id.tv_one2one:
+//                et_room_type.setText(R.string.one2one_class);
+//                card_room_type.setVisibility(View.GONE);
+//                break;
+//            case R.id.tv_small_class:
+//                et_room_type.setText(R.string.small_class);
+//                card_room_type.setVisibility(View.GONE);
+//                break;
+//            case R.id.tv_large_class:
+//                et_room_type.setText(R.string.large_class);
+//                card_room_type.setVisibility(View.GONE);
+//                break;
+//            case R.id.tv_breakout_class:
+//                et_room_type.setText(R.string.breakout);
+//                card_room_type.setVisibility(View.GONE);
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//
+//    @OnTouch(R.id.et_room_type)
+//    public void onTouch(View view, MotionEvent event) {
+//        if (event.getAction() == MotionEvent.ACTION_UP) {
+//            if (card_room_type.getVisibility() == View.GONE) {
+//                card_room_type.setVisibility(View.VISIBLE);
+//            } else {
+//                card_room_type.setVisibility(View.GONE);
+//            }
+//        }
+//    }
 
-    @OnTouch(R.id.et_room_type)
-    public void onTouch(View view, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            if (card_room_type.getVisibility() == View.GONE) {
-                card_room_type.setVisibility(View.VISIBLE);
-            } else {
-                card_room_type.setVisibility(View.GONE);
-            }
-        }
-    }
-
-    private void start() {
-        String roomNameStr = et_room_name.getText().toString();
-        if (TextUtils.isEmpty(roomNameStr)) {
-            ToastManager.showShort(R.string.room_name_should_not_be_empty);
-            return;
-        }
-
-        String yourNameStr = et_your_name.getText().toString();
-        if (TextUtils.isEmpty(yourNameStr)) {
-            ToastManager.showShort(R.string.your_name_should_not_be_empty);
-            return;
-        }
-
-        String roomTypeStr = et_room_type.getText().toString();
-        if (TextUtils.isEmpty(roomTypeStr)) {
-            ToastManager.showShort(R.string.room_type_should_not_be_empty);
-            return;
-        }
-
+    private void joinChannelAttempt(String roomName, String userName, String classRoomType) {
         /**userUuid和roomUuid需用户自己指定，并保证唯一性*/
-        int roomType = getClassType(roomTypeStr);
-        String userUuid = yourNameStr + EduUserRole.STUDENT.getValue();
-        String roomUuid = roomNameStr + roomType;
+        int roomType = getClassType(classRoomType);
+        String userUuid = userName + EduUserRole.STUDENT.getValue();
+        String roomUuid = roomName + roomType;
 
-        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, yourNameStr);
+        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, userName);
         options.setCustomerId(getCustomerId());
         options.setCustomerCertificate(getCustomerCer());
         options.setLogFileDir(getCacheDir().getAbsolutePath());
@@ -206,7 +194,7 @@ public class MainActivity extends BaseActivity {
                 if (res != null) {
                     Log.e(TAG, "初始化EduManager成功");
                     setManager(res);
-                    createRoom(yourNameStr, userUuid, roomNameStr, roomUuid, roomType);
+                    createRoom(userName, userUuid, roomName, roomUuid, roomType);
                 }
             }
 
@@ -216,6 +204,52 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+//    private void start() {
+////        String roomNameStr = et_room_name.getText().toString();
+////        if (TextUtils.isEmpty(roomNameStr)) {
+////            ToastManager.showShort(R.string.room_name_should_not_be_empty);
+////            return;
+////        }
+////
+////        String yourNameStr = et_your_name.getText().toString();
+////        if (TextUtils.isEmpty(yourNameStr)) {
+////            ToastManager.showShort(R.string.your_name_should_not_be_empty);
+////            return;
+////        }
+////
+////        String roomTypeStr = et_room_type.getText().toString();
+////        if (TextUtils.isEmpty(roomTypeStr)) {
+////            ToastManager.showShort(R.string.room_type_should_not_be_empty);
+////            return;
+////        }
+//
+//        /**userUuid和roomUuid需用户自己指定，并保证唯一性*/
+//        int roomType = getClassType(roomTypeStr);
+//        String userUuid = yourNameStr + EduUserRole.STUDENT.getValue();
+//        String roomUuid = roomNameStr + roomType;
+//
+//        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, yourNameStr);
+//        options.setCustomerId(getCustomerId());
+//        options.setCustomerCertificate(getCustomerCer());
+//        options.setLogFileDir(getCacheDir().getAbsolutePath());
+//        options.setTag(EDULOGINTAG);
+//        EduManager.init(options, new EduCallback<EduManager>() {
+//            @Override
+//            public void onSuccess(@Nullable EduManager res) {
+//                if (res != null) {
+//                    Log.e(TAG, "初始化EduManager成功");
+//                    setManager(res);
+//                    createRoom(yourNameStr, userUuid, roomNameStr, roomUuid, roomType);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int code, @Nullable String reason) {
+//                Log.e(TAG, "初始化EduManager失败-> code:" + code + ",reason:" + reason);
+//            }
+//        });
+//    }
 
     @Room.Type
     private int getClassType(String roomTypeStr) {

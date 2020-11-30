@@ -74,6 +74,8 @@ public class RoomEntry implements Parcelable {
         dest.writeString(this.roomName);
         dest.writeString(this.roomUuid);
         dest.writeInt(this.roomType);
+
+
     }
 
     protected RoomEntry(Parcel in) {
