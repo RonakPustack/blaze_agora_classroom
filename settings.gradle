@@ -1,3 +1,4 @@
+include ':roomhelper'
 include ':ClassroomHelper'
 include ':edusdk-impl'
 include ':edusdk-api'

@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/edusdk-impl" />
             <option value="$PROJECT_DIR$/log" />
             <option value="$PROJECT_DIR$/record" />
+            <option value="$PROJECT_DIR$/roomhelper" />
             <option value="$PROJECT_DIR$/rte" />
             <option value="$PROJECT_DIR$/sdk" />
             <option value="$PROJECT_DIR$/timeline" />
