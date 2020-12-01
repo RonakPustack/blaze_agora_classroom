@@ -1,5 +1,6 @@
+include ':ClassModule'
 include ':TestModule'
-include ':mylibrary'
+include ':MyLibrary'
 include ':roomhelper'
 include ':ClassroomHelper'
 include ':edusdk-impl'

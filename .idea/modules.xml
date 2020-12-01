@@ -3,14 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" filepath="$PROJECT_DIR$/.idea/modules/AgoraEducation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ClassModule/AgoraEducation.ClassModule.iml" filepath="$PROJECT_DIR$/.idea/modules/ClassModule/AgoraEducation.ClassModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ClassroomHelper/AgoraEducation.ClassroomHelper.iml" filepath="$PROJECT_DIR$/.idea/modules/ClassroomHelper/AgoraEducation.ClassroomHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mylibrary/AgoraEducation.MyLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/mylibrary/AgoraEducation.MyLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TestModule/AgoraEducation.TestModule.iml" filepath="$PROJECT_DIR$/.idea/modules/TestModule/AgoraEducation.TestModule.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AgoraEducation.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" filepath="$PROJECT_DIR$/.idea/modules/base/AgoraEducation.base.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-api/AgoraEducation.edusdk-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" filepath="$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mylibrary/AgoraEducation.mylibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/mylibrary/AgoraEducation.mylibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" filepath="$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/roomhelper/AgoraEducation.roomhelper.iml" filepath="$PROJECT_DIR$/.idea/modules/roomhelper/AgoraEducation.roomhelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" filepath="$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" />

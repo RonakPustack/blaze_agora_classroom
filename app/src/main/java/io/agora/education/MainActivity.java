@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         joinChannelAttempt(
-                "test_room", "test_user", "Small Classroom"
+                "111", "234", "Small Classroom"
         );
     }
 
