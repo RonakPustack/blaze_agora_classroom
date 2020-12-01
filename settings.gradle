@@ -1,3 +1,4 @@
+include ':TestModule'
 include ':mylibrary'
 include ':roomhelper'
 include ':ClassroomHelper'
