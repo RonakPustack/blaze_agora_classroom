@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" filepath="$PROJECT_DIR$/.idea/modules/edusdk-impl/AgoraEducation.edusdk-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" filepath="$PROJECT_DIR$/.idea/modules/log/AgoraEducation.log.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" filepath="$PROJECT_DIR$/.idea/modules/record/AgoraEducation.record.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/roomhelper/AgoraEducation.roomhelper.iml" filepath="$PROJECT_DIR$/.idea/modules/roomhelper/AgoraEducation.roomhelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" filepath="$PROJECT_DIR$/.idea/modules/rte/AgoraEducation.rte.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/AgoraEducation.sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/AgoraEducation.sdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/timeline/AgoraEducation.timeline.iml" filepath="$PROJECT_DIR$/.idea/modules/timeline/AgoraEducation.timeline.iml" />
