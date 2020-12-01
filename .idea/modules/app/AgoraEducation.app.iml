@@ -22,6 +22,7 @@
         <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/normal/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/src/normalDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/normal/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/normal/debug" />
         <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestNormal/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/src/androidTestNormalDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/normal/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/normal/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">

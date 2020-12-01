@@ -48,15 +48,15 @@ android {
         }
     }
 
-    flavorDimensions "app"
-    productFlavors {
-        normal {
-            dimension "app"
-            applicationId "io.agora.education"
-            buildConfigField 'String', 'CODE', '"edu-demo"'
-            buildConfigField 'String', 'EXTRA', '"AgoraEducation"'
-        }
-    }
+//    flavorDimensions "app"
+//    productFlavors {
+//        normal {
+//            dimension "app"
+//            applicationId "io.agora.education"
+//            buildConfigField 'String', 'CODE', '"edu-demo"'
+//            buildConfigField 'String', 'EXTRA', '"AgoraEducation"'
+//        }
+//    }
 
     sourceSets {
         main {
