@@ -77,13 +77,13 @@ import static com.ronak.www.mylibrary.classroom.bean.record.RecordState.END;
 public class BreakoutClassActivity extends BaseClassActivity implements TabLayout.OnTabSelectedListener {
     private static final String TAG = "BreakoutClassActivity";
 
-    @BindView(R.id.layout_placeholder)
+//    @BindView(R.id.layout_placeholder)
     protected ConstraintLayout layout_placeholder;
-    @BindView(R.id.rcv_videos)
+//    @BindView(R.id.rcv_videos)
     protected RecyclerView rcv_videos;
-    @BindView(R.id.layout_im)
+//    @BindView(R.id.layout_im)
     protected View layout_im;
-    @BindView(R.id.layout_tab)
+//    @BindView(R.id.layout_tab)
     protected TabLayout layout_tab;
 
     private ClassVideoAdapter classVideoAdapter;
@@ -295,12 +295,12 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
         });
     }
 
-    @OnClick(R.id.iv_float)
-    public void onClick(View view) {
-        boolean isSelected = view.isSelected();
-        view.setSelected(!isSelected);
-        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-    }
+//    @OnClick(R.id.iv_float)
+//    public void onClick(View view) {
+//        boolean isSelected = view.isSelected();
+//        view.setSelected(!isSelected);
+//        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+//    }
 
     @Override
     protected void onDestroy() {

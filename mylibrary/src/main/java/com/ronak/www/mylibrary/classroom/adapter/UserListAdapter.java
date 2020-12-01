@@ -71,13 +71,13 @@ public class UserListAdapter extends BaseQuickAdapter<EduStreamInfo, UserListAda
 
 
     static class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.tv_name)
+//        @BindView(R.id.tv_name)
         TextView tv_name;
-        @BindView(R.id.iv_btn_grant_board)
+//        @BindView(R.id.iv_btn_grant_board)
         ImageView iv_btn_grant_board;
-        @BindView(R.id.iv_btn_mute_audio)
+//        @BindView(R.id.iv_btn_mute_audio)
         ImageView iv_btn_mute_audio;
-        @BindView(R.id.iv_btn_mute_video)
+//        @BindView(R.id.iv_btn_mute_video)
         ImageView iv_btn_mute_video;
 
         ViewHolder(View itemView) {

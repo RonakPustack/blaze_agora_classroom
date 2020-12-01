@@ -25,11 +25,11 @@ import io.agora.whiteboard.netless.manager.ReplayManager;
 
 public class ReplayBoardFragment extends BaseFragment implements ReplayEventListener {
 
-    @BindView(R.id.white_board_view)
+//    @BindView(R.id.white_board_view)
     protected WhiteboardView white_board_view;
-    @BindView(R.id.replay_control_view)
+//    @BindView(R.id.replay_control_view)
     protected ReplayControlView replay_control_view;
-    @BindView(R.id.pb_loading)
+//    @BindView(R.id.pb_loading)
     protected ProgressBar pb_loading;
 
     private WhiteSdk whiteSdk;
@@ -62,13 +62,13 @@ public class ReplayBoardFragment extends BaseFragment implements ReplayEventList
         replayManager.setListener(this);
     }
 
-    @OnTouch(R.id.white_board_view)
-    boolean onTouch(View view, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            replay_control_view.setVisibility(View.VISIBLE);
-        }
-        return false;
-    }
+//    @OnTouch(R.id.white_board_view)
+//    boolean onTouch(View view, MotionEvent event) {
+//        if (event.getAction() == MotionEvent.ACTION_UP) {
+//            replay_control_view.setVisibility(View.VISIBLE);
+//        }
+//        return false;
+//    }
 
     public void initReplayWithRoomToken(String uuid, String roomToken) {
         if (TextUtils.isEmpty(uuid)) return;

@@ -10,6 +10,7 @@ def extGet(prop, key) {
 
 plugins {
     id 'com.android.library'
+    id 'com.jakewharton.butterknife'
 }
 
 android {

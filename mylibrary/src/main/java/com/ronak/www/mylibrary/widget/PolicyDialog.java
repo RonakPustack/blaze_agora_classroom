@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
 import io.agora.base.PreferenceManager;
-import com.ronak.www.mylibrary.BuildConfig;
+//import com.ronak.www.mylibrary.BuildConfig;
 import com.ronak.www.mylibrary.R;
 
 public class PolicyDialog extends ConfirmDialog implements ConfirmDialog.DialogClickListener {
@@ -29,7 +29,9 @@ public class PolicyDialog extends ConfirmDialog implements ConfirmDialog.DialogC
         String policy = getString(R.string.policy);
         SpannableString spannableString = new SpannableString(tips);
         int index = tips.toLowerCase().indexOf(policy.toLowerCase());
-        spannableString.setSpan(new URLSpan(BuildConfig.POLICY_URL), index, index + policy.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+//        spannableString.setSpan(new URLSpan(BuildConfig.POLICY_URL), index, index + policy.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         tv_content.setMovementMethod(LinkMovementMethod.getInstance());
         tv_content.setText(spannableString);
         tv_dialog_cancel.setText(R.string.policy_refuse);

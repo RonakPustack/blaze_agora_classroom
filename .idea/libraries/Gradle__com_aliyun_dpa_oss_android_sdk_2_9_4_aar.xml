@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.aliyun.dpa:oss-android-sdk:2.9.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f0c69b43233ca51d01787d314bb5886/oss-android-sdk-2.9.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f0c69b43233ca51d01787d314bb5886/oss-android-sdk-2.9.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3f0c69b43233ca51d01787d314bb5886/oss-android-sdk-2.9.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a08de40afcee6fba9860962293e32e8/oss-android-sdk-2.9.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a08de40afcee6fba9860962293e32e8/oss-android-sdk-2.9.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a08de40afcee6fba9860962293e32e8/oss-android-sdk-2.9.4/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aliyun.dpa/oss-android-sdk/2.9.4/d56b44717ee17018a05fef7e49f4178557edc2f8/oss-android-sdk-2.9.4-javadoc.jar!/" />

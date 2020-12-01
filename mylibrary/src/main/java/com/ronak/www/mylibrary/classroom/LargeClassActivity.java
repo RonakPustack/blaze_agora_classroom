@@ -63,19 +63,19 @@ import static com.ronak.www.mylibrary.classroom.bean.msg.PeerMsg.CoVideoMsg.Type
 public class LargeClassActivity extends BaseClassActivity implements TabLayout.OnTabSelectedListener {
     private static final String TAG = "LargeClassActivity";
 
-    @BindView(R.id.layout_video_teacher)
+//    @BindView(R.id.layout_video_teacher)
     protected FrameLayout layout_video_teacher;
-    @BindView(R.id.layout_video_student)
+//    @BindView(R.id.layout_video_student)
     protected FrameLayout layout_video_student;
     @Nullable
-    @BindView(R.id.layout_tab)
+//    @BindView(R.id.layout_tab)
     protected TabLayout layout_tab;
-    @BindView(R.id.layout_chat_room)
+//    @BindView(R.id.layout_chat_room)
     protected FrameLayout layout_chat_room;
     @Nullable
-    @BindView(R.id.layout_materials)
+//    @BindView(R.id.layout_materials)
     protected FrameLayout layout_materials;
-    @BindView(R.id.layout_hand_up)
+//    @BindView(R.id.layout_hand_up)
     protected CardView layout_hand_up;
 
     private RtcVideoView video_teacher;
@@ -193,38 +193,38 @@ public class LargeClassActivity extends BaseClassActivity implements TabLayout.O
         recoveryFragmentWithConfigChanged();
     }
 
-    @OnClick(R.id.layout_hand_up)
-    public void onClick(View view) {
-        boolean status = localCoVideoStatus == DisCoVideo;
-        if (!status) {
-            /*取消举手(包括在老师处理前主动取消和老师同意后主动退出)*/
-            cancelCoVideo(new EduCallback<EduMsg>() {
-                @Override
-                public void onSuccess(@Nullable EduMsg res) {
-                    Log.e(TAG, "取消举手成功");
-                }
-
-                @Override
-                public void onFailure(int code, @Nullable String reason) {
-                    Log.e(TAG, "取消举手失败");
-                }
-            });
-        } else {
-            /*举手*/
-            applyCoVideo(new EduCallback<EduMsg>() {
-                @Override
-                public void onSuccess(@Nullable EduMsg res) {
-                    Log.e(TAG, "举手成功");
-                }
-
-                @Override
-                public void onFailure(int code, @Nullable String reason) {
-                    Log.e(TAG, "举手失败");
-                    ToastManager.showShort(R.string.function_error, code, reason);
-                }
-            });
-        }
-    }
+//    @OnClick(R.id.layout_hand_up)
+//    public void onClick(View view) {
+//        boolean status = localCoVideoStatus == DisCoVideo;
+//        if (!status) {
+//            /*取消举手(包括在老师处理前主动取消和老师同意后主动退出)*/
+//            cancelCoVideo(new EduCallback<EduMsg>() {
+//                @Override
+//                public void onSuccess(@Nullable EduMsg res) {
+//                    Log.e(TAG, "取消举手成功");
+//                }
+//
+//                @Override
+//                public void onFailure(int code, @Nullable String reason) {
+//                    Log.e(TAG, "取消举手失败");
+//                }
+//            });
+//        } else {
+//            /*举手*/
+//            applyCoVideo(new EduCallback<EduMsg>() {
+//                @Override
+//                public void onSuccess(@Nullable EduMsg res) {
+//                    Log.e(TAG, "举手成功");
+//                }
+//
+//                @Override
+//                public void onFailure(int code, @Nullable String reason) {
+//                    Log.e(TAG, "举手失败");
+//                    ToastManager.showShort(R.string.function_error, code, reason);
+//                }
+//            });
+//        }
+//    }
 
     /**
      * 申请举手连麦

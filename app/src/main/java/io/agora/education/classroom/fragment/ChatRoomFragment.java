@@ -147,7 +147,7 @@ public class ChatRoomFragment extends BaseFragment implements OnItemChildClickLi
     private void fetchRecordList(String appId, String roomId, int next, EduCallback<RecordRes.RecordDetail> callback) {
         RetrofitManager.instance().getService(API_BASE_URL, RecordService.class)
                 .record(appId, roomId, next)
-                .enqueue(new BaseCallback<>(data -> {
+                .enqueue(new BaseCallback<RecordRes>(data -> {
                     total = data.total;
                     nextId = data.nextId;
                     recordDetails.addAll(data.list);

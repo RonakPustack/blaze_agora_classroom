@@ -22,12 +22,12 @@ import com.ronak.www.mylibrary.classroom.BaseClassActivity;
 public class TitleView extends ConstraintLayout {
 
     @Nullable
-    @BindView(R.id.iv_quality)
+//    @BindView(R.id.iv_quality)
     protected ImageView iv_quality;
-    @BindView(R.id.tv_room_name)
+//    @BindView(R.id.tv_room_name)
     protected TextView tv_room_name;
     @Nullable
-    @BindView(R.id.time_view)
+//    @BindView(R.id.time_view)
     protected TimeView time_view;
 
     public TitleView(Context context) {
@@ -101,21 +101,21 @@ public class TitleView extends ConstraintLayout {
         });
     }
 
-    @OnClick({R.id.iv_close, R.id.iv_uploadLog})
-    public void onClock(View view) {
-        Context context = getContext();
-        if (context instanceof BaseClassActivity) {
-            switch (view.getId()) {
-                case R.id.iv_close:
-                    ((BaseClassActivity) context).showLeaveDialog();
-                    break;
-                case R.id.iv_uploadLog:
-                    ((BaseClassActivity) context).uploadLog();
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+//    @OnClick({R.id.iv_close, R.id.iv_uploadLog})
+//    public void onClock(View view) {
+//        Context context = getContext();
+//        if (context instanceof BaseClassActivity) {
+//            switch (view.getId()) {
+//                case R.id.iv_close:
+//                    ((BaseClassActivity) context).showLeaveDialog();
+//                    break;
+//                case R.id.iv_uploadLog:
+//                    ((BaseClassActivity) context).uploadLog();
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
 
 }

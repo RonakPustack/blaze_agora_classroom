@@ -18,16 +18,16 @@ import com.ronak.www.mylibrary.R;
 
 public class RtcVideoView extends ConstraintLayout {
 
-    @BindView(R.id.tv_name)
+//    @BindView(R.id.tv_name)
     protected TextView tv_name;
-    @BindView(R.id.ic_audio)
+//    @BindView(R.id.ic_audio)
     protected RtcAudioView ic_audio;
     @Nullable
-    @BindView(R.id.ic_video)
+//    @BindView(R.id.ic_video)
     protected ImageView ic_video;
-    @BindView(R.id.layout_place_holder)
+//    @BindView(R.id.layout_place_holder)
     protected FrameLayout layout_place_holder;
-    @BindView(R.id.layout_video)
+//    @BindView(R.id.layout_video)
     protected FrameLayout layout_video;
 
     public RtcVideoView(Context context) {

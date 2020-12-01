@@ -18,7 +18,7 @@ import com.ronak.www.mylibrary.R;
 
 public class PageControlView extends CardView {
 
-    @BindView(R.id.tv_page)
+//    @BindView(R.id.tv_page)
     protected TextView tv_page;
 
     private PageControlListener listener;
@@ -41,24 +41,24 @@ public class PageControlView extends CardView {
         tv_page.setText(String.format(Locale.getDefault(), "%d/%d", index + 1, count));
     }
 
-    @OnClick({R.id.iv_start, R.id.iv_previous, R.id.iv_next, R.id.iv_end})
-    public void onClick(View view) {
-        if (listener == null) return;
-        switch (view.getId()) {
-            case R.id.iv_start:
-                listener.toStart();
-                break;
-            case R.id.iv_previous:
-                listener.toPrevious();
-                break;
-            case R.id.iv_next:
-                listener.toNext();
-                break;
-            case R.id.iv_end:
-                listener.toEnd();
-                break;
-        }
-    }
+//    @OnClick({R.id.iv_start, R.id.iv_previous, R.id.iv_next, R.id.iv_end})
+//    public void onClick(View view) {
+//        if (listener == null) return;
+//        switch (view.getId()) {
+//            case R.id.iv_start:
+//                listener.toStart();
+//                break;
+//            case R.id.iv_previous:
+//                listener.toPrevious();
+//                break;
+//            case R.id.iv_next:
+//                listener.toNext();
+//                break;
+//            case R.id.iv_end:
+//                listener.toEnd();
+//                break;
+//        }
+//    }
 
     public void setListener(PageControlListener listener) {
         this.listener = listener;

@@ -33,7 +33,12 @@ import com.ronak.www.mylibrary.service.bean.ResponseBody;
 import com.ronak.www.mylibrary.service.bean.request.RoomCreateOptionsReq;
 import com.ronak.www.mylibrary.widget.PolicyDialog;
 
-import com.ronak.www.mylibrary.EduApplication.*;
+import static com.ronak.www.mylibrary.EduApplication.getAppId;
+import static com.ronak.www.mylibrary.EduApplication.getCustomerCer;
+import static com.ronak.www.mylibrary.EduApplication.getCustomerId;
+import static com.ronak.www.mylibrary.EduApplication.setManager;
+import static io.agora.education.api.BuildConfig.API_BASE_URL;
+import static com.ronak.www.mylibrary.classroom.BaseClassActivity.RESULT_CODE;
 
 
 import static io.agora.education.api.BuildConfig.API_BASE_URL;

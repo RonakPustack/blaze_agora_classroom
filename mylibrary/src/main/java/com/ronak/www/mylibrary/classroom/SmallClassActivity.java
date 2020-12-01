@@ -58,13 +58,13 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
         RteAudioMixingListener, RteMediaDeviceListener, RteSpeakerReportListener, RteStatisticsReportListener {
     private static final String TAG = "SmallClassActivity";
 
-    @BindView(R.id.layout_placeholder)
+//    @BindView(R.id.layout_placeholder)
     protected ConstraintLayout layout_placeholder;
-    @BindView(R.id.rcv_videos)
+//    @BindView(R.id.rcv_videos)
     protected RecyclerView rcv_videos;
-    @BindView(R.id.layout_im)
+//    @BindView(R.id.layout_im)
     protected View layout_im;
-    @BindView(R.id.layout_tab)
+//    @BindView(R.id.layout_tab)
     protected TabLayout layout_tab;
 
     private ClassVideoAdapter classVideoAdapter;
@@ -138,12 +138,12 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
         return Room.Type.SMALL;
     }
 
-    @OnClick(R.id.iv_float)
-    public void onClick(View view) {
-        boolean isSelected = view.isSelected();
-        view.setSelected(!isSelected);
-        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-    }
+//    @OnClick(R.id.iv_float)
+//    public void onClick(View view) {
+//        boolean isSelected = view.isSelected();
+//        view.setSelected(!isSelected);
+//        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+//    }
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {

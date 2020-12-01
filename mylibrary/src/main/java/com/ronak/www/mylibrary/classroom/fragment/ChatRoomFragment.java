@@ -41,9 +41,9 @@ import static io.agora.education.api.BuildConfig.API_BASE_URL;
 public class ChatRoomFragment extends BaseFragment implements OnItemChildClickListener, View.OnKeyListener {
     public static final String TAG = ChatRoomFragment.class.getSimpleName();
 
-    @BindView(R.id.rcv_msg)
+//    @BindView(R.id.rcv_msg)
     protected RecyclerView rcv_msg;
-    @BindView(R.id.edit_send_msg)
+//    @BindView(R.id.edit_send_msg)
     protected EditText edit_send_msg;
 
     private MessageListAdapter adapter;
@@ -145,28 +145,28 @@ public class ChatRoomFragment extends BaseFragment implements OnItemChildClickLi
     private List<RecordRes.RecordDetail> recordDetails = new ArrayList<>();
 
     private void fetchRecordList(String appId, String roomId, int next, EduCallback<RecordRes.RecordDetail> callback) {
-        RetrofitManager.instance().getService(API_BASE_URL, RecordService.class)
-                .record(appId, roomId, next)
-                .enqueue(new BaseCallback(data -> {
-                    total = data.total;
-                    nextId = data.nextId;
-                    recordDetails.addAll(data.list);
-                    if (recordDetails.size() < total) {
-                        fetchRecordList(appId, roomId, nextId, callback);
-                    } else {
-                        nextId = total = 0;
-                        long max = 0;
-                        RecordRes.RecordDetail recordDetail = null;
-                        for (RecordRes.RecordDetail detail : recordDetails) {
-                            if (detail.startTime > max) {
-                                max = detail.startTime;
-                                recordDetail = detail;
-                            }
-                        }
-                        recordDetails.clear();
-                        callback.onSuccess(recordDetail);
-                    }
-                }));
+//        RetrofitManager.instance().getService(API_BASE_URL, RecordService.class)
+//                .record(appId, roomId, next)
+//                .enqueue(new BaseCallback(data -> {
+//                    total = data.total;
+//                    nextId = data.nextId;
+//                    recordDetails.addAll(data.list);
+//                    if (recordDetails.size() < total) {
+//                        fetchRecordList(appId, roomId, nextId, callback);
+//                    } else {
+//                        nextId = total = 0;
+//                        long max = 0;
+//                        RecordRes.RecordDetail recordDetail = null;
+//                        for (RecordRes.RecordDetail detail : recordDetails) {
+//                            if (detail.startTime > max) {
+//                                max = detail.startTime;
+//                                recordDetail = detail;
+//                            }
+//                        }
+//                        recordDetails.clear();
+//                        callback.onSuccess(recordDetail);
+//                    }
+//                }));
     }
 
     @Override

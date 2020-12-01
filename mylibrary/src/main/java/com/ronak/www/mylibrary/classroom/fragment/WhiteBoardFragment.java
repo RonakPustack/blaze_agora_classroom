@@ -42,15 +42,15 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
         PageControlView.PageControlListener, BoardEventListener {
     private static final String TAG = "WhiteBoardFragment";
 
-    @BindView(R.id.white_board_view)
+//    @BindView(R.id.white_board_view)
     protected WhiteboardView white_board_view;
-    @BindView(R.id.appliance_view)
+//    @BindView(R.id.appliance_view)
     protected ApplianceView appliance_view;
-    @BindView(R.id.color_select_view)
+//    @BindView(R.id.color_select_view)
     protected ColorPicker color_select_view;
-    @BindView(R.id.page_control_view)
+//    @BindView(R.id.page_control_view)
     protected PageControlView page_control_view;
-    @BindView(R.id.pb_loading)
+//    @BindView(R.id.pb_loading)
     protected ProgressBar pb_loading;
 
     private WhiteSdk whiteSdk;
@@ -193,38 +193,38 @@ boardManager.disableDeviceInputs(true);
         boardManager.disconnect();
     }
 
-    @OnTouch(R.id.white_board_view)
-    boolean onTouch(View view, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            white_board_view.requestFocus();
-            if (boardManager.isDisableCameraTransform() && !boardManager.isDisableDeviceInputs()) {
-                ToastManager.showShort(R.string.follow_tips);
-                return true;
-            }
-        }
-        return false;
-    }
+//    @OnTouch(R.id.white_board_view)
+//    boolean onTouch(View view, MotionEvent event) {
+//        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//            white_board_view.requestFocus();
+//            if (boardManager.isDisableCameraTransform() && !boardManager.isDisableDeviceInputs()) {
+//                ToastManager.showShort(R.string.follow_tips);
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         color_select_view.setVisibility(View.GONE);
-        switch (checkedId) {
-            case R.id.tool_selector:
-                boardManager.setAppliance(Appliance.SELECTOR);
-                break;
-            case R.id.tool_pencil:
-                boardManager.setAppliance(Appliance.PENCIL);
-                break;
-            case R.id.tool_text:
-                boardManager.setAppliance(Appliance.TEXT);
-                break;
-            case R.id.tool_eraser:
-                boardManager.setAppliance(Appliance.ERASER);
-                break;
-            case R.id.tool_color:
-                color_select_view.setVisibility(View.VISIBLE);
-                break;
-        }
+//        switch (checkedId) {
+//            case R.id.tool_selector:
+//                boardManager.setAppliance(Appliance.SELECTOR);
+//                break;
+//            case R.id.tool_pencil:
+//                boardManager.setAppliance(Appliance.PENCIL);
+//                break;
+//            case R.id.tool_text:
+//                boardManager.setAppliance(Appliance.TEXT);
+//                break;
+//            case R.id.tool_eraser:
+//                boardManager.setAppliance(Appliance.ERASER);
+//                break;
+//            case R.id.tool_color:
+//                color_select_view.setVisibility(View.VISIBLE);
+//                break;
+//        }
     }
 
     @Override

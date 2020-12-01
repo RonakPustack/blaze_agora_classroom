@@ -90,11 +90,11 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     public static final String ROOMENTRY = "roomEntry";
     public static final int RESULT_CODE = 808;
 
-    @BindView(R.id.title_view)
+//    @BindView(R.id.title_view)
     protected TitleView title_view;
-    @BindView(R.id.layout_whiteboard)
+//    @BindView(R.id.layout_whiteboard)
     protected FrameLayout layout_whiteboard;
-    @BindView(R.id.layout_share_video)
+//    @BindView(R.id.layout_share_video)
     protected FrameLayout layout_share_video;
 
     protected WhiteBoardFragment whiteboardFragment = new WhiteBoardFragment();

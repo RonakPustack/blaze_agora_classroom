@@ -29,15 +29,15 @@ import io.agora.whiteboard.netless.manager.ReplayManager;
 
 public class ReplayControlView extends RelativeLayout implements ReplayEventListener, SeekBar.OnSeekBarChangeListener, TimelineListener {
 
-    @BindView(R.id.btn_play)
+//    @BindView(R.id.btn_play)
     protected ImageView btn_play;
-    @BindView(R.id.btn_play_pause)
+//    @BindView(R.id.btn_play_pause)
     protected ImageView btn_play_pause;
-    @BindView(R.id.sb_time)
+//    @BindView(R.id.sb_time)
     protected SeekBar sb_time;
-    @BindView(R.id.tv_current_time)
+//    @BindView(R.id.tv_current_time)
     protected TextView tv_current_time;
-    @BindView(R.id.tv_total_time)
+//    @BindView(R.id.tv_total_time)
     protected TextView tv_total_time;
 
     private boolean isTrackingTouch;
@@ -124,15 +124,15 @@ public class ReplayControlView extends RelativeLayout implements ReplayEventList
         }
     }
 
-    @OnClick({R.id.btn_play, R.id.btn_play_pause})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_play:
-            case R.id.btn_play_pause:
-                playOrPause();
-                break;
-        }
-    }
+//    @OnClick({R.id.btn_play, R.id.btn_play_pause})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.btn_play:
+//            case R.id.btn_play_pause:
+//                playOrPause();
+//                break;
+//        }
+//    }
 
     @Override
     public void onPlayerPrepared(ReplayManager replayBoard) {

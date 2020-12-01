@@ -25,7 +25,7 @@ import com.ronak.www.mylibrary.classroom.adapter.UserListAdapter;
 
 public class UserListFragment extends BaseFragment implements OnItemChildClickListener {
 
-    @BindView(R.id.rcv_users)
+//    @BindView(R.id.rcv_users)
     protected RecyclerView rcv_users;
 
     private UserListAdapter adapter;
@@ -100,19 +100,19 @@ public class UserListFragment extends BaseFragment implements OnItemChildClickLi
 
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-        if (context instanceof BaseClassActivity) {
-            boolean isSelected = view.isSelected();
-            switch (view.getId()) {
-                case R.id.iv_btn_mute_audio:
-                    ((BaseClassActivity) context).muteLocalAudio(isSelected);
-                    break;
-                case R.id.iv_btn_mute_video:
-                    ((BaseClassActivity) context).muteLocalVideo(isSelected);
-                    break;
-                default:
-                    break;
-            }
-        }
+//        if (context instanceof BaseClassActivity) {
+//            boolean isSelected = view.isSelected();
+//            switch (view.getId()) {
+//                case R.id.iv_btn_mute_audio:
+//                    ((BaseClassActivity) context).muteLocalAudio(isSelected);
+//                    break;
+//                case R.id.iv_btn_mute_video:
+//                    ((BaseClassActivity) context).muteLocalVideo(isSelected);
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
     }
 
 }
