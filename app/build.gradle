@@ -79,7 +79,6 @@ dependencies {
     implementation project(':base')
     implementation project(':log')
     implementation project(':timeline')
-    implementation project(':ClassroomHelper')
     implementation project(':whiteboard')
 //    implementation project(':edusdk-api')
     implementation project(':edusdk-impl')
