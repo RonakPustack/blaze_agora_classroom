@@ -18,9 +18,9 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "io.agora.education"
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
+//        applicationId "io.agora.education"
+        minSdkVersion 16
+        targetSdkVersion 30
         versionCode 8
         versionName "6.0.0"
 
