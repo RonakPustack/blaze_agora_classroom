@@ -34,10 +34,6 @@ public class EduApplication extends Application {
 
     private EduManager eduManager;
 
-
-
-
-    @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
