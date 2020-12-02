@@ -8,7 +8,8 @@ def extGet(prop, key) {
     return "latest.release"
 }
 
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -48,15 +49,15 @@ android {
         }
     }
 
-    flavorDimensions "app"
-    productFlavors {
-        normal {
-            dimension "app"
-            applicationId "io.agora.education"
-            buildConfigField 'String', 'CODE', '"edu-demo"'
-            buildConfigField 'String', 'EXTRA', '"AgoraEducation"'
-        }
-    }
+//    flavorDimensions "app"
+//    productFlavors {
+//        normal {
+//            dimension "app"
+//            applicationId "io.agora.education"
+//            buildConfigField 'String', 'CODE', '"edu-demo"'
+//            buildConfigField 'String', 'EXTRA', '"AgoraEducation"'
+//        }
+//    }
 
     sourceSets {
         main {
@@ -79,7 +80,6 @@ dependencies {
     implementation project(':base')
     implementation project(':log')
     implementation project(':timeline')
-    implementation project(':ClassroomHelper')
     implementation project(':whiteboard')
 //    implementation project(':edusdk-api')
     implementation project(':edusdk-impl')
