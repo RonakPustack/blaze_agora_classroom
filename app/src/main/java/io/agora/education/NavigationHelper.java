@@ -6,7 +6,7 @@ import android.content.Intent;
 public class NavigationHelper {
 
     public static Intent getIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, BlankActivity.class);
         return intent;
     }
 
