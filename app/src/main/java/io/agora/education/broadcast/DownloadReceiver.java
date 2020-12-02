@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 
-import io.agora.education.BuildConfig;
+//import io.agora.education.BuildConfig;
 
 public class DownloadReceiver extends BroadcastReceiver {
 
@@ -57,7 +57,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         // request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
         request.setMimeType("application/vnd.android.package-archive");
         request.allowScanningByMediaScanner();
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, BuildConfig.APPLICATION_ID + ".apk");
+//        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, BuildConfig.APPLICATION_ID + ".apk");
 
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         if (manager != null) {

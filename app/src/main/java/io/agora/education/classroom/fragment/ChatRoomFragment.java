@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import io.agora.base.ToastManager;
 import io.agora.base.network.RetrofitManager;
-import io.agora.education.BuildConfig;
+//import io.agora.education.BuildConfig;
 import io.agora.education.EduApplication;
 import io.agora.education.R;
 import io.agora.education.api.EduCallback;
@@ -41,9 +41,9 @@ import static io.agora.education.api.BuildConfig.API_BASE_URL;
 public class ChatRoomFragment extends BaseFragment implements OnItemChildClickListener, View.OnKeyListener {
     public static final String TAG = ChatRoomFragment.class.getSimpleName();
 
-    @BindView(R.id.rcv_msg)
+//    @BindView(R.id.rcv_msg)
     protected RecyclerView rcv_msg;
-    @BindView(R.id.edit_send_msg)
+//    @BindView(R.id.edit_send_msg)
     protected EditText edit_send_msg;
 
     private MessageListAdapter adapter;

@@ -42,9 +42,9 @@ public class MessageListAdapter extends BaseProviderMultiAdapter<ChannelMsg.Chat
     }
 
     class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.tv_name)
+//        @BindView(R.id.tv_name)
         TextView tv_name;
-        @BindView(R.id.tv_content)
+//        @BindView(R.id.tv_content)
         TextView tv_content;
 
         ViewHolder(View itemView) {

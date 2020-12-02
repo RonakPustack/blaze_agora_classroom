@@ -34,11 +34,11 @@ import io.agora.education.classroom.widget.RtcVideoView;
 public class OneToOneClassActivity extends BaseClassActivity {
     private static final String TAG = OneToOneClassActivity.class.getSimpleName();
 
-    @BindView(R.id.layout_video_teacher)
+//    @BindView(R.id.layout_video_teacher)
     protected RtcVideoView video_teacher;
-    @BindView(R.id.layout_video_student)
+//    @BindView(R.id.layout_video_student)
     protected RtcVideoView video_student;
-    @BindView(R.id.layout_im)
+//    @BindView(R.id.layout_im)
     protected View layout_im;
 
     @Override
@@ -77,12 +77,12 @@ public class OneToOneClassActivity extends BaseClassActivity {
         return Room.Type.ONE2ONE;
     }
 
-    @OnClick(R.id.iv_float)
-    public void onClick(View view) {
-        boolean isSelected = view.isSelected();
-        view.setSelected(!isSelected);
-        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-    }
+//    @OnClick(R.id.iv_float)
+//    public void onClick(View view) {
+//        boolean isSelected = view.isSelected();
+//        view.setSelected(!isSelected);
+//        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+//    }
 
     @Override
     public void onRemoteUsersInitialized(@NotNull List<? extends EduUserInfo> users, @NotNull EduRoom classRoom) {

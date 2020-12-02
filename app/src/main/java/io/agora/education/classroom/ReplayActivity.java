@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.agora.education.BuildConfig;
+//import io.agora.education.BuildConfig;
 import io.agora.education.R;
 import io.agora.education.base.BaseActivity;
 import io.agora.education.classroom.fragment.ReplayBoardFragment;
@@ -26,7 +26,7 @@ public class ReplayActivity extends BaseActivity {
     public static final String WHITEBOARD_ID = "whiteboardId";
     public static final String WHITEBOARD_TOKEN = "whiteboardToken";
 
-    @BindView(R.id.video_view)
+//    @BindView(R.id.video_view)
     protected PlayerView video_view;
 
     private ReplayBoardFragment replayBoardFragment;
@@ -44,9 +44,9 @@ public class ReplayActivity extends BaseActivity {
     protected void initData() {
         Intent intent = getIntent();
         url = intent.getStringExtra(WHITEBOARD_URL);
-        if (!url.startsWith("http")) {
-            url = BuildConfig.REPLAY_BASE_URL.concat("/").concat(url);
-        }
+//        if (!url.startsWith("http")) {
+//            url = BuildConfig.REPLAY_BASE_URL.concat("/").concat(url);
+//        }
         Log.e(TAG, "回放链接:" + url);
         roomId = intent.getStringExtra(WHITEBOARD_ROOM_ID);
         startTime = intent.getLongExtra(WHITEBOARD_START_TIME, 0);
@@ -87,9 +87,9 @@ public class ReplayActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    @OnClick(R.id.iv_back)
-    public void onClick(View view) {
-        finish();
-    }
+//    @OnClick(R.id.iv_back)
+//    public void onClick(View view) {
+//        finish();
+//    }
 
 }

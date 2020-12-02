@@ -21,13 +21,13 @@ import io.agora.education.R;
 
 public class ConfirmDialog extends DialogFragment {
 
-    @BindView(R.id.tv_content)
+//    @BindView(R.id.tv_content)
     protected TextView tv_content;
-    @BindView(R.id.tv_dialog_cancel)
+//    @BindView(R.id.tv_dialog_cancel)
     protected TextView tv_dialog_cancel;
-    @BindView(R.id.tv_dialog_confirm)
+//    @BindView(R.id.tv_dialog_confirm)
     protected TextView tv_dialog_confirm;
-    @BindView(R.id.line2)
+//    @BindView(R.id.line2)
     protected View line2;
 
     private String content;
@@ -94,22 +94,22 @@ public class ConfirmDialog extends DialogFragment {
         return root;
     }
 
-    @OnClick({R.id.tv_dialog_cancel, R.id.tv_dialog_confirm})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_dialog_cancel:
-                if (listener != null)
-                    listener.onClick(false);
-                break;
-            case R.id.tv_dialog_confirm:
-                if (listener != null)
-                    listener.onClick(true);
-                break;
-        }
-        if (isCancelable()) {
-            dismiss();
-        }
-    }
+//    @OnClick({R.id.tv_dialog_cancel, R.id.tv_dialog_confirm})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.tv_dialog_cancel:
+//                if (listener != null)
+//                    listener.onClick(false);
+//                break;
+//            case R.id.tv_dialog_confirm:
+//                if (listener != null)
+//                    listener.onClick(true);
+//                break;
+//        }
+//        if (isCancelable()) {
+//            dismiss();
+//        }
+//    }
 
     public interface DialogClickListener {
         void onClick(boolean confirm);
