@@ -51,6 +51,7 @@ import static io.agora.education.EduApplication.getAppId;
 import static io.agora.education.EduApplication.getCustomerCer;
 import static io.agora.education.EduApplication.getCustomerId;
 import static io.agora.education.EduApplication.setManager;
+
 import static io.agora.education.api.BuildConfig.API_BASE_URL;
 import static io.agora.education.classroom.BaseClassActivity.RESULT_CODE;
 
@@ -62,6 +63,8 @@ public class MainActivity extends BaseActivity {
     public static final String CODE = "code";
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
+
+    public static MainActivity instance;
 
 //    @BindView(R.id.et_room_name)
 //    protected EditText et_room_name;

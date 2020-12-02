@@ -9,13 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
-import io.agora.education.EduApplication;
-import io.agora.education.api.manager.EduManager;
-import io.agora.education.widget.EyeProtection;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private EyeProtection.EyeProtectionView eyeProtectionView;
+//    private EyeProtection.EyeProtectionView eyeProtectionView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,28 +33,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (EyeProtection.isNeedShow()) {
-            showEyeProtection();
-        } else {
-            dismissEyeProtection();
-        }
+//        if (EyeProtection.isNeedShow()) {
+//            showEyeProtection();
+//        } else {
+//            dismissEyeProtection();
+//        }
     }
 
-    protected void showEyeProtection() {
-        if (eyeProtectionView == null) {
-            eyeProtectionView = new EyeProtection.EyeProtectionView(this);
-        }
-        if (eyeProtectionView.getParent() == null) {
-            addContentView(eyeProtectionView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        }
-        eyeProtectionView.setVisibility(View.VISIBLE);
-    }
-
-    protected void dismissEyeProtection() {
-        if (eyeProtectionView != null) {
-            eyeProtectionView.setVisibility(View.GONE);
-        }
-    }
+//    protected void showEyeProtection() {
+//        if (eyeProtectionView == null) {
+//            eyeProtectionView = new EyeProtection.EyeProtectionView(this);
+//        }
+//        if (eyeProtectionView.getParent() == null) {
+//            addContentView(eyeProtectionView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        }
+//        eyeProtectionView.setVisibility(View.VISIBLE);
+//    }
+//
+//    protected void dismissEyeProtection() {
+//        if (eyeProtectionView != null) {
+//            eyeProtectionView.setVisibility(View.GONE);
+//        }
+//    }
 
     protected void removeFromParent(View view) {
         ViewGroup viewGroup = (ViewGroup) view.getParent();
