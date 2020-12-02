@@ -1,6 +1,8 @@
 package io.agora.education;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Base64;
 import android.util.Log;
 
@@ -34,6 +36,7 @@ public class EduApplication extends Application {
 
     private EduManager eduManager;
 
+    @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
@@ -142,4 +145,8 @@ public class EduApplication extends Application {
         return instance.config.multiLanguage;
     }
 
+    public static Intent getIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
+    }
 }

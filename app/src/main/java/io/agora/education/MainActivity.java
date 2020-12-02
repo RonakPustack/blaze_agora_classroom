@@ -64,8 +64,6 @@ public class MainActivity extends BaseActivity {
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
 
-    public static MainActivity instance;
-
 //    @BindView(R.id.et_room_name)
 //    protected EditText et_room_name;
 //    @BindView(R.id.et_your_name)

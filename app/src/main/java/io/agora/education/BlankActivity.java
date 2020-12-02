@@ -21,8 +21,6 @@ public class BlankActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        EduApplication eduApplication = new EduApplication();
-        eduApplication.onCreate();
     }
 
     @Override
