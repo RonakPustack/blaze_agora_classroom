@@ -9,16 +9,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import io.agora.education.widget.EyeProtection;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-//    private EyeProtection.EyeProtectionView eyeProtectionView;
+
+    private EyeProtection.EyeProtectionView eyeProtectionView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
         initData();
         initView();
     }

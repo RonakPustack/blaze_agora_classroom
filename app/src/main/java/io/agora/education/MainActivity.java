@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        new PolicyDialog().show(getSupportFragmentManager(), null);
+//        new PolicyDialog().show(getSupportFragmentManager(), null);
 //        if (BuildConfig.DEBUG) {
 //            et_room_name.setText("123");
 //            et_room_name.setSelection(et_room_name.length());

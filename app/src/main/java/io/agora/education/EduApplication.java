@@ -145,8 +145,9 @@ public class EduApplication extends Application {
         return instance.config.multiLanguage;
     }
 
-    public static Intent getIntent(Context context) {
+    public Intent getIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         return intent;
     }
+
 }
