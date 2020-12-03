@@ -91,7 +91,7 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
         if(white_board_view != null){
             whiteSdk = new WhiteSdk(white_board_view, context, configuration);
         }else{
-            Log.d(TAG, "White board view is null");
+            Log.d(TAG, "White board view is null inside initData");
         }
 
 
@@ -101,12 +101,13 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
     @Override
     protected void initView() {
 
-boardManager.disableDeviceInputs(true);
-        white_board_view.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
-            boardManager.refreshViewSize();
-        });
+        boardManager.disableDeviceInputs(true);
 
+        if(white_board_view != null){
 
+            white_board_view.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+                boardManager.refreshViewSize();
+            });
 
 //        appliance_view.setVisibility(boardManager.isDisableDeviceInputs() ? View.GONE : View.VISIBLE);
 //        appliance_view.setVisibility(View.GONE);
@@ -116,9 +117,12 @@ boardManager.disableDeviceInputs(true);
 //            boardManager.setStrokeColor(ColorUtil.colorToArray(color));
 //        });
 
-        white_board_view.setInitialScale(50);
-        white_board_view.getSettings().setLoadWithOverviewMode(true);
-        white_board_view.getSettings().setUseWideViewPort(true);
+            white_board_view.setInitialScale(50);
+            white_board_view.getSettings().setLoadWithOverviewMode(true);
+            white_board_view.getSettings().setUseWideViewPort(true);
+        }else{
+            Log.d(TAG, "White board view is null inside initView");
+        }
 
 //        white_board_view.setInitialScale(10);
         /*白板控制按钮暂时不予适用*/
