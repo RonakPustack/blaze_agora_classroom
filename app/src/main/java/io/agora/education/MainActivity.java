@@ -38,7 +38,7 @@ import static io.agora.education.EduApplication.setManager;
 import static io.agora.education.api.BuildConfig.API_BASE_URL;
 import static io.agora.education.classroom.BaseClassActivity.RESULT_CODE;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends EduApplication {
     private static final String TAG = "MainActivity";
 
     private final int REQUEST_CODE_RTC = 101;

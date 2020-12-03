@@ -8,14 +8,25 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tencent.bugly.crashreport.CrashReport;
+
 import butterknife.ButterKnife;
+import io.agora.base.PreferenceManager;
+import io.agora.base.ToastManager;
 import io.agora.education.widget.EyeProtection;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+    private EyeProtection.EyeProtectionView eyeProtectionView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CrashReport.initCrashReport(getApplicationContext(), "04948355be", true);
+        PreferenceManager.init(this);
+        ToastManager.init(this);
+
         setContentView(getLayoutResId());
         ButterKnife.bind(this);
         initData();
@@ -32,28 +43,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        if (EyeProtection.isNeedShow()) {
-//            showEyeProtection();
-//        } else {
-//            dismissEyeProtection();
-//        }
+        if (EyeProtection.isNeedShow()) {
+            showEyeProtection();
+        } else {
+            dismissEyeProtection();
+        }
     }
 
-//    protected void showEyeProtection() {
-//        if (eyeProtectionView == null) {
-//            eyeProtectionView = new EyeProtection.EyeProtectionView(this);
-//        }
-//        if (eyeProtectionView.getParent() == null) {
-//            addContentView(eyeProtectionView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        }
-//        eyeProtectionView.setVisibility(View.VISIBLE);
-//    }
+    protected void showEyeProtection() {
+        if (eyeProtectionView == null) {
+            eyeProtectionView = new EyeProtection.EyeProtectionView(this);
+        }
+        if (eyeProtectionView.getParent() == null) {
+            addContentView(eyeProtectionView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        }
+        eyeProtectionView.setVisibility(View.VISIBLE);
+    }
 
-//    protected void dismissEyeProtection() {
-//        if (eyeProtectionView != null) {
-//            eyeProtectionView.setVisibility(View.GONE);
-//        }
-//    }
+    protected void dismissEyeProtection() {
+        if (eyeProtectionView != null) {
+            eyeProtectionView.setVisibility(View.GONE);
+        }
+    }
 
     protected void removeFromParent(View view) {
         ViewGroup viewGroup = (ViewGroup) view.getParent();

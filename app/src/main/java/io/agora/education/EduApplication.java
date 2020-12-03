@@ -43,10 +43,6 @@ public abstract class EduApplication extends BaseActivity {
         super.onCreate(savedInstanceState);
         instance = this;
 
-        CrashReport.initCrashReport(getApplicationContext(), "04948355be", true);
-        PreferenceManager.init(this);
-        ToastManager.init(this);
-
         String appId, customerId, customerCertificate;
         appId = getString(R.string.agora_app_id);
         customerId = getString(R.string.agora_customer_id);
@@ -145,11 +141,6 @@ public abstract class EduApplication extends BaseActivity {
             return null;
         }
         return instance.config.multiLanguage;
-    }
-
-    public Intent getIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        return intent;
     }
 
 }
