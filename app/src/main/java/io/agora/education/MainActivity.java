@@ -58,6 +58,8 @@ public class MainActivity extends EduApplication {
 
     private String url;
 
+
+
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main;
@@ -65,9 +67,9 @@ public class MainActivity extends EduApplication {
 
     @Override
     protected void initData() {
-//        joinChannelAttempt(
-//                "123", "234", "Small Classroom"
-//        );
+        joinChannelAttempt(
+                "123", "234", "Small Classroom"
+        );
     }
 
     @Override
