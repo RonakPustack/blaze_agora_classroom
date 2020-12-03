@@ -125,6 +125,10 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
 
     @Override
     protected void initView() {
+        title_view = findViewById(R.id.title_view);
+        layout_whiteboard = findViewById(R.id.layout_whiteboard);
+        layout_share_video = findViewById(R.id.layout_share_video);
+
         if (getClassType() == RoomType.ONE_ON_ONE.getValue()) {
             whiteboardFragment.setInputWhileFollow(true);
         }
