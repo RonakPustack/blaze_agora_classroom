@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ import io.agora.rtc.Constants;
 import static io.agora.education.api.statistics.NetworkQuality.*;
 
 public class TitleView extends ConstraintLayout {
+
+    private String TAG = "TitleView";
 
 //    @Nullable
 //    @BindView(R.id.iv_quality)
@@ -70,7 +73,8 @@ public class TitleView extends ConstraintLayout {
     }
 
     public void setTitle(String title) {
-        ((Activity) getContext()).runOnUiThread(() -> tv_room_name.setText(title));
+        Log.d(TAG, "Inside the set title method");
+//        ((Activity) getContext()).runOnUiThread(() -> tv_room_name.setText(title));
     }
 
     public void setNetworkQuality(NetworkQuality quality) {
