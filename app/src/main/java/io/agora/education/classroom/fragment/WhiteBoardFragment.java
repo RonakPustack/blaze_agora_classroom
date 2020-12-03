@@ -63,7 +63,7 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
     /*初始化时不进行相关提示*/
     private boolean inputTips = false;
     private boolean transform = false;
-    /*是否允许在开启白板跟随的情况下，进行书写(仅仅书写，不包括移动缩放)*/
+    /*Whether to allow writing when the whiteboard follow is enabled (only writing, not including zooming)*/
     private boolean inputWhileFollow = false;
 
     @Override
