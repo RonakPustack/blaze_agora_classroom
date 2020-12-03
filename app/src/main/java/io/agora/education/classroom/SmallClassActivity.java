@@ -81,12 +81,6 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     @Override
     protected void initData() {
         super.initData();
-        layout_placeholder = findViewById(R.id.layout_placeholder);
-        rcv_videos = findViewById(R.id.rcv_videos);
-        layout_im = findViewById(R.id.layout_im);
-        layout_tab = findViewById(R.id.layout_tab);
-
-
         joinRoom(getMainEduRoom(), roomEntry.getUserName(), roomEntry.getUserUuid(), true, true, true,
                 new EduCallback<EduStudent>() {
                     @Override
@@ -105,6 +99,11 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     @Override
     protected void initView() {
         super.initView();
+        layout_placeholder = findViewById(R.id.layout_placeholder);
+        rcv_videos = findViewById(R.id.rcv_videos);
+        layout_im = findViewById(R.id.layout_im);
+        layout_tab = findViewById(R.id.layout_tab);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rcv_videos.setLayoutManager(layoutManager);
         rcv_videos.addItemDecoration(new RecyclerView.ItemDecoration() {

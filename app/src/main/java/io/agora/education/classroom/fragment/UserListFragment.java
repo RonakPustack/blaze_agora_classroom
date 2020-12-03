@@ -48,6 +48,8 @@ public class UserListFragment extends BaseFragment implements OnItemChildClickLi
 
     @Override
     protected void initView() {
+        rcv_users = (RecyclerView) getView().findViewById(R.id.rcv_users);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcv_users.setLayoutManager(layoutManager);
         rcv_users.setAdapter(adapter);
