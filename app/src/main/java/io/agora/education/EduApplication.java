@@ -43,6 +43,8 @@ public abstract class EduApplication extends BaseActivity {
         super.onCreate(savedInstanceState);
         instance = this;
 
+        Log.d( TAG, "On create method");
+
         String appId, customerId, customerCertificate;
         appId = getString(R.string.agora_app_id);
         customerId = getString(R.string.agora_customer_id);
@@ -85,6 +87,7 @@ public abstract class EduApplication extends BaseActivity {
 
     @Nullable
     public static String getAppId() {
+        Log.d( TAG, "getApp Id");
         if(instance == null){
             return "EduApplication : The instance is null";
         }else {

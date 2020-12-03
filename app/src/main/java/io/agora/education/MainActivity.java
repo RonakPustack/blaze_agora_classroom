@@ -67,10 +67,19 @@ public class MainActivity extends EduApplication {
 
     @Override
     protected void initData() {
-        System.out.println("MainActivity : Running join channel attempt");
-        joinChannelAttempt(
-                "123", "234", "Small Classroom"
-        );
+        Log.d( TAG, "Init data method");
+
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        Log.i(TAG, "This'll run 500 milliseconds later");
+
+                        joinChannelAttempt(
+                                "123", "234", "Small Classroom"
+                        );
+                    }
+                },
+                500);
     }
 
     @Override
@@ -168,7 +177,7 @@ public class MainActivity extends EduApplication {
         String userUuid = userName + EduUserRole.STUDENT.getValue();
         String roomUuid = roomName + roomType;
 
-        System.out.println("Called Join Channel Attempt, here's the App id");
+        Log.d( TAG, "Join channel method attempt");
         System.out.println(getAppId());
 
 //        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, userName);

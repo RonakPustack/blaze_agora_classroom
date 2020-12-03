@@ -1,6 +1,7 @@
 package io.agora.education.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,11 +20,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private EyeProtection.EyeProtectionView eyeProtectionView;
 
+    private String TAG = "BaseActivity";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CrashReport.initCrashReport(getApplicationContext(), "04948355be", true);
+        Log.d( TAG, "On create method");
+
+//        CrashReport.initCrashReport(getApplicationContext(), "04948355be", true);
         PreferenceManager.init(this);
         ToastManager.init(this);
 
