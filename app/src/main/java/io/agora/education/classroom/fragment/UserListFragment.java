@@ -1,6 +1,7 @@
 package io.agora.education.classroom.fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,6 +28,8 @@ import io.agora.education.classroom.adapter.UserListAdapter;
 
 public class UserListFragment extends BaseFragment implements OnItemChildClickListener {
 
+    private String TAG = "UserListFragment";
+
 //    @BindView(R.id.rcv_users)
     protected RecyclerView rcv_users;
 
@@ -48,7 +51,9 @@ public class UserListFragment extends BaseFragment implements OnItemChildClickLi
 
     @Override
     protected void initView() {
-        rcv_users = (RecyclerView) getView().findViewById(R.id.rcv_users);
+        Log.d(TAG, "Inside init view");
+
+        rcv_users =  getActivity().findViewById(R.id.rcv_users);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcv_users.setLayoutManager(layoutManager);

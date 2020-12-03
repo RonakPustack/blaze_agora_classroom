@@ -1,13 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.wendux:DSBridge-Android:ac150b630b@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a67303ed3e88fda0dae37a9492ae3581/jetified-DSBridge-Android-ac150b630b/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef28f6fc9923d8519190bec5776112da/jetified-DSBridge-Android-ac150b630b/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9e4efd1357ca3674fae1a60453245668/jetified-DSBridge-Android-ac150b630b/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a67303ed3e88fda0dae37a9492ae3581/jetified-DSBridge-Android-ac150b630b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a67303ed3e88fda0dae37a9492ae3581/jetified-DSBridge-Android-ac150b630b/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a67303ed3e88fda0dae37a9492ae3581/jetified-DSBridge-Android-ac150b630b/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef28f6fc9923d8519190bec5776112da/jetified-DSBridge-Android-ac150b630b/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef28f6fc9923d8519190bec5776112da/jetified-DSBridge-Android-ac150b630b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef28f6fc9923d8519190bec5776112da/jetified-DSBridge-Android-ac150b630b/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.tencent.bugly:nativecrashreport:3.7.500@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26ae64fe29d0d6f64e15e0e11a859e1a/nativecrashreport-3.7.500/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26ae64fe29d0d6f64e15e0e11a859e1a/nativecrashreport-3.7.500/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26ae64fe29d0d6f64e15e0e11a859e1a/nativecrashreport-3.7.500/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/207f0acd42d3d475cab760c22e7e0438/nativecrashreport-3.7.500/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/207f0acd42d3d475cab760c22e7e0438/nativecrashreport-3.7.500/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/207f0acd42d3d475cab760c22e7e0438/nativecrashreport-3.7.500/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.bugly/nativecrashreport/3.7.500/d1cf1cfea9ac7d94908f20eabb451be3bcbfa468/nativecrashreport-3.7.500-javadoc.jar!/" />

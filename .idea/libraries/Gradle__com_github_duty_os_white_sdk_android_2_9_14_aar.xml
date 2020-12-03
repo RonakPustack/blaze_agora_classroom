@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.duty-os:white-sdk-android:2.9.14@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ebeda40d02d5e6d7cccbb4267c3fc9c7/white-sdk-android-2.9.14/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ebeda40d02d5e6d7cccbb4267c3fc9c7/white-sdk-android-2.9.14/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ebeda40d02d5e6d7cccbb4267c3fc9c7/white-sdk-android-2.9.14/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/078fbc0f4f37e73ec26256e04257321a/white-sdk-android-2.9.14/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/078fbc0f4f37e73ec26256e04257321a/white-sdk-android-2.9.14/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/078fbc0f4f37e73ec26256e04257321a/white-sdk-android-2.9.14/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.duty-os/white-sdk-android/2.9.14/acac030c8c0ffe76305f19b67384564fa8b2ffe4/white-sdk-android-2.9.14-javadoc.jar!/" />

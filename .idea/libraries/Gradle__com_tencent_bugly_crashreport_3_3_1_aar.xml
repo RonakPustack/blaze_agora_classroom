@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.tencent.bugly:crashreport:3.3.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7d246d99d2097252e924250f84b96fd6/crashreport-3.3.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7d246d99d2097252e924250f84b96fd6/crashreport-3.3.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7d246d99d2097252e924250f84b96fd6/crashreport-3.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28eb073c2c926e29413f17984c781459/crashreport-3.3.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28eb073c2c926e29413f17984c781459/crashreport-3.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28eb073c2c926e29413f17984c781459/crashreport-3.3.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.bugly/crashreport/3.3.1/41a13c1be5d84f69072e1c19ddb5589e112ac494/crashreport-3.3.1-javadoc.jar!/" />
