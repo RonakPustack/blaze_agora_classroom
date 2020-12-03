@@ -24,12 +24,12 @@ import static io.agora.education.api.statistics.NetworkQuality.*;
 
 public class TitleView extends ConstraintLayout {
 
-    @Nullable
+//    @Nullable
 //    @BindView(R.id.iv_quality)
     protected ImageView iv_quality;
 //    @BindView(R.id.tv_room_name)
     protected TextView tv_room_name;
-    @Nullable
+//    @Nullable
 //    @BindView(R.id.time_view)
     protected TimeView time_view;
 
@@ -49,6 +49,11 @@ public class TitleView extends ConstraintLayout {
 
     private void init() {
         int layoutResId;
+
+        iv_quality = findViewById(R.id.iv_quality);
+        tv_room_name = findViewById(R.id.tv_room_name);
+        time_view = findViewById(R.id.time_view);
+
         Configuration configuration = getResources().getConfiguration();
         if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             layoutResId = R.layout.layout_title_portrait;
