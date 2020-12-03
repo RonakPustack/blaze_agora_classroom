@@ -1,25 +1,13 @@
 package io.agora.education;
 
-import android.Manifest;
-import android.app.DownloadManager;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 
 import org.jetbrains.annotations.Nullable;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-import butterknife.OnTouch;
 import io.agora.base.ToastManager;
 import io.agora.base.callback.ThrowableCallback;
 import io.agora.base.network.BusinessException;
@@ -32,8 +20,6 @@ import io.agora.education.api.room.data.RoomType;
 import io.agora.education.api.statistics.AgoraError;
 import io.agora.education.api.user.data.EduUserRole;
 import io.agora.education.base.BaseActivity;
-import io.agora.education.base.BaseCallback;
-import io.agora.education.broadcast.DownloadReceiver;
 import io.agora.education.classroom.BaseClassActivity;
 import io.agora.education.classroom.BreakoutClassActivity;
 import io.agora.education.classroom.LargeClassActivity;
@@ -43,9 +29,6 @@ import io.agora.education.classroom.bean.channel.Room;
 import io.agora.education.service.CommonService;
 import io.agora.education.service.bean.ResponseBody;
 import io.agora.education.service.bean.request.RoomCreateOptionsReq;
-import io.agora.education.util.AppUtil;
-import io.agora.education.widget.ConfirmDialog;
-import io.agora.education.widget.PolicyDialog;
 
 import static io.agora.education.EduApplication.getAppId;
 import static io.agora.education.EduApplication.getCustomerCer;
@@ -55,7 +38,7 @@ import static io.agora.education.EduApplication.setManager;
 import static io.agora.education.api.BuildConfig.API_BASE_URL;
 import static io.agora.education.classroom.BaseClassActivity.RESULT_CODE;
 
-public class MainActivity extends DefaultInitActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
 
     private final int REQUEST_CODE_RTC = 101;

@@ -3,6 +3,7 @@ package io.agora.education;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 
@@ -24,10 +25,11 @@ import io.agora.education.api.manager.EduManagerOptions;
 import io.agora.education.api.room.EduRoom;
 import io.agora.education.api.room.data.RoomCreateOptions;
 import io.agora.education.api.util.CryptoUtil;
+import io.agora.education.base.BaseActivity;
 import io.agora.education.service.bean.response.AppConfigRes;
 import kotlin.text.Charsets;
 
-public class EduApplication extends Application {
+public abstract class EduApplication extends BaseActivity {
     private static final String TAG = "EduApplication";
 
     public static EduApplication instance;
@@ -37,8 +39,8 @@ public class EduApplication extends Application {
     private EduManager eduManager;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         instance = this;
 
         CrashReport.initCrashReport(getApplicationContext(), "04948355be", true);
