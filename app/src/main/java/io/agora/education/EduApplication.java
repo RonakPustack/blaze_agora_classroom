@@ -85,10 +85,14 @@ public abstract class EduApplication extends BaseActivity {
 
     @Nullable
     public static String getAppId() {
-        if (instance.config == null) {
-            return null;
+        if(instance == null){
+            return "EduApplication : The instance is null";
+        }else {
+            if (instance.config == null) {
+                return "EduApplication : Instance config is null";
+            }
+            return instance.config.appId;
         }
-        return instance.config.appId;
     }
 
     @Nullable
@@ -108,6 +112,7 @@ public abstract class EduApplication extends BaseActivity {
     }
 
     public static void setAppId(String appId) {
+        System.out.println("EduApplication : Setting the app id");
         if (instance.config == null) {
             instance.config = new AppConfigRes();
         }

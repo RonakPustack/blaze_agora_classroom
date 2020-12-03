@@ -67,6 +67,7 @@ public class MainActivity extends EduApplication {
 
     @Override
     protected void initData() {
+        System.out.println("MainActivity : Running join channel attempt");
         joinChannelAttempt(
                 "123", "234", "Small Classroom"
         );
@@ -167,26 +168,29 @@ public class MainActivity extends EduApplication {
         String userUuid = userName + EduUserRole.STUDENT.getValue();
         String roomUuid = roomName + roomType;
 
-        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, userName);
-        options.setCustomerId(getCustomerId());
-        options.setCustomerCertificate(getCustomerCer());
-        options.setLogFileDir(getCacheDir().getAbsolutePath());
-        options.setTag(EDULOGINTAG);
-        EduManager.init(options, new EduCallback<EduManager>() {
-            @Override
-            public void onSuccess(@Nullable EduManager res) {
-                if (res != null) {
-                    Log.e(TAG, "初始化EduManager成功");
-                    setManager(res);
-                    createRoom(userName, userUuid, roomName, roomUuid, roomType);
-                }
-            }
+        System.out.println("Called Join Channel Attempt, here's the App id");
+        System.out.println(getAppId());
 
-            @Override
-            public void onFailure(int code, @Nullable String reason) {
-                Log.e(TAG, "初始化EduManager失败-> code:" + code + ",reason:" + reason);
-            }
-        });
+//        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, userName);
+//        options.setCustomerId(getCustomerId());
+//        options.setCustomerCertificate(getCustomerCer());
+//        options.setLogFileDir(getCacheDir().getAbsolutePath());
+//        options.setTag(EDULOGINTAG);
+//        EduManager.init(options, new EduCallback<EduManager>() {
+//            @Override
+//            public void onSuccess(@Nullable EduManager res) {
+//                if (res != null) {
+//                    Log.e(TAG, "初始化EduManager成功");
+//                    setManager(res);
+//                    createRoom(userName, userUuid, roomName, roomUuid, roomType);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int code, @Nullable String reason) {
+//                Log.e(TAG, "初始化EduManager失败-> code:" + code + ",reason:" + reason);
+//            }
+//        });
     }
 
 //    private void start() {
