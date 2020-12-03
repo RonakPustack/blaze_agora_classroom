@@ -32,6 +32,8 @@ import io.agora.education.api.message.EduChatMsg;
 import io.agora.education.api.message.EduMsg;
 import io.agora.education.api.room.EduRoom;
 import io.agora.education.api.room.data.EduRoomChangeType;
+import io.agora.education.api.room.data.EduRoomState;
+import io.agora.education.api.room.data.EduRoomStatus;
 import io.agora.education.api.statistics.ConnectionState;
 import io.agora.education.api.statistics.NetworkQuality;
 import io.agora.education.api.stream.data.EduStreamEvent;
@@ -79,6 +81,12 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     @Override
     protected void initData() {
         super.initData();
+        layout_placeholder = findViewById(R.id.layout_placeholder);
+        rcv_videos = findViewById(R.id.rcv_videos);
+        layout_im = findViewById(R.id.layout_im);
+        layout_tab = findViewById(R.id.layout_tab);
+
+
         joinRoom(getMainEduRoom(), roomEntry.getUserName(), roomEntry.getUserUuid(), true, true, true,
                 new EduCallback<EduStudent>() {
                     @Override
@@ -139,11 +147,11 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     }
 
 //    @OnClick(R.id.iv_float)
-//    public void onClick(View view) {
-//        boolean isSelected = view.isSelected();
-//        view.setSelected(!isSelected);
-//        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-//    }
+    public void onClick(View view) {
+        boolean isSelected = view.isSelected();
+        view.setSelected(!isSelected);
+        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+    }
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {

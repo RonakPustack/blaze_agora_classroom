@@ -111,6 +111,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_float"
+        android:onClick="onClick"
         android:layout_width="@dimen/dp_30"
         android:layout_height="@dimen/dp_30"
         android:layout_marginTop="@dimen/dp_5"

@@ -43,7 +43,7 @@ public abstract class EduApplication extends BaseActivity {
         super.onCreate(savedInstanceState);
         instance = this;
 
-        Log.d( TAG, "On create method");
+        Log.d(TAG, "On create method");
 
         String appId, customerId, customerCertificate;
         appId = getString(R.string.agora_app_id);
@@ -56,6 +56,7 @@ public abstract class EduApplication extends BaseActivity {
         String auth = Base64.encodeToString((customerId + ":" + customerCertificate)
                 .getBytes(Charsets.UTF_8), Base64.DEFAULT).replace("\n", "").trim();
         RetrofitManager.instance().addHeader("Authorization", CryptoUtil.getAuth(auth));
+
     }
 
     public static void setManager(EduManager eduManager) {
@@ -87,10 +88,10 @@ public abstract class EduApplication extends BaseActivity {
 
     @Nullable
     public static String getAppId() {
-        Log.d( TAG, "getApp Id");
-        if(instance == null){
+        Log.d(TAG, "getApp Id");
+        if (instance == null) {
             return "EduApplication : The instance is null";
-        }else {
+        } else {
             if (instance.config == null) {
                 return "EduApplication : Instance config is null";
             }
@@ -137,7 +138,11 @@ public abstract class EduApplication extends BaseActivity {
     }
 
     public static EduRoom buildEduRoom(RoomCreateOptions options) {
-        if (instance.config == null) {
+        Log.d(TAG, "building Edu Room");
+        if (instance == null) {
+            Log.e(TAG, "Instance is null");
+        } else if (instance.config == null) {
+            Log.d(TAG, "Config is null");
             return null;
         }
         return instance.eduManager.createClassroom(options);
