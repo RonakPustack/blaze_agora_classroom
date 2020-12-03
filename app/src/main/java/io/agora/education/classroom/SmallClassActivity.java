@@ -70,7 +70,7 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     protected TabLayout layout_tab;
 
     private ClassVideoAdapter classVideoAdapter;
-    private UserListFragment userListFragment;
+//    private UserListFragment userListFragment;
     private View teacherPlaceholderView;
 
     @Override
@@ -117,11 +117,11 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
         });
         rcv_videos.setAdapter(classVideoAdapter);
         layout_tab.addOnTabSelectedListener(this);
-        userListFragment = new UserListFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.layout_chat_room, userListFragment)
-                .show(userListFragment)
-                .commitNow();
+//        userListFragment = new UserListFragment();
+//        getSupportFragmentManager().beginTransaction()
+//                .add(R.id.layout_chat_room, userListFragment)
+//                .show(userListFragment)
+//                .commitNow();
         /**测试监听回调*/
         RteEngineImpl.INSTANCE.setMediaDeviceListener(this);
         RteEngineImpl.INSTANCE.setAudioMixingListener(this);
@@ -154,13 +154,14 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (tab.getPosition() == 0) {
-            transaction.show(chatRoomFragment).hide(userListFragment);
-        } else {
-            transaction.show(userListFragment).hide(chatRoomFragment);
-        }
-        transaction.commitNow();
+        Log.d(TAG, "Selected tab");
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        if (tab.getPosition() == 0) {
+//            transaction.show(chatRoomFragment).hide(userListFragment);
+//        } else {
+//            transaction.show(userListFragment).hide(chatRoomFragment);
+//        }
+//        transaction.commitNow();
     }
 
     @Override
@@ -271,8 +272,8 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
                     break;
             }
         }
-        userListFragment.setLocalUserUuid(classRoom.getLocalUser().getUserInfo().getUserUuid());
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.setLocalUserUuid(classRoom.getLocalUser().getUserInfo().getUserUuid());
+//        userListFragment.setUserList(getCurFullStream());
         showVideoList(getCurFullStream());
     }
 
@@ -295,7 +296,7 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
             Log.e(TAG, "有远端Camera流添加，刷新视频列表");
             showVideoList(getCurFullStream());
         }
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
@@ -316,7 +317,7 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
             Log.e(TAG, "有远端Camera流被修改，刷新视频列表");
             showVideoList(getCurFullStream());
         }
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
@@ -338,7 +339,7 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
             Log.e(TAG, "有远端Camera流被移除，刷新视频列表");
             showVideoList(getCurFullStream());
         }
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
@@ -386,8 +387,8 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
         super.onLocalUserUpdated(userEvent, type);
         /**更新用户信息*/
         showVideoList(getCurFullStream());
-        userListFragment.updateLocalStream(getLocalCameraStream());
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.updateLocalStream(getLocalCameraStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
@@ -399,16 +400,16 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
     public void onLocalStreamAdded(@NotNull EduStreamEvent streamEvent) {
         super.onLocalStreamAdded(streamEvent);
         showVideoList(getCurFullStream());
-        userListFragment.updateLocalStream(getLocalCameraStream());
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.updateLocalStream(getLocalCameraStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
     public void onLocalStreamUpdated(@NotNull EduStreamEvent streamEvent, @NotNull EduStreamStateChangeType type) {
         super.onLocalStreamUpdated(streamEvent, type);
         showVideoList(getCurFullStream());
-        userListFragment.updateLocalStream(getLocalCameraStream());
-        userListFragment.setUserList(getCurFullStream());
+//        userListFragment.updateLocalStream(getLocalCameraStream());
+//        userListFragment.setUserList(getCurFullStream());
     }
 
     @Override
@@ -428,7 +429,7 @@ public class SmallClassActivity extends BaseClassActivity implements TabLayout.O
         super.onGlobalStateChanged(state);
         BoardState boardState = (BoardState) state;
         List<String> grantedUuids = boardState.getGrantUsers();
-        userListFragment.setGrantedUuids(grantedUuids);
+//        userListFragment.setGrantedUuids(grantedUuids);
     }
 
     private void showVideoList(List<EduStreamInfo> list) {
