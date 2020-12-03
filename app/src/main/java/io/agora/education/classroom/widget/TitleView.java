@@ -73,7 +73,7 @@ public class TitleView extends ConstraintLayout {
     }
 
     public void setTitle(String title) {
-        Log.d(TAG, "Inside the set title method");
+        Log.d(TAG, "Inside the set title method - 0.5.12 Release");
 //        ((Activity) getContext()).runOnUiThread(() -> tv_room_name.setText(title));
     }
 
