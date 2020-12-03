@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.herewhite.sdk.RoomParams;
@@ -46,11 +47,11 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
 //    @BindView(R.id.white_board_view)
     protected WhiteboardView white_board_view;
 //    @BindView(R.id.appliance_view)
-    protected ApplianceView appliance_view;
+//    protected ApplianceView appliance_view;
 //    @BindView(R.id.color_select_view)
-    protected ColorPicker color_select_view;
+//    protected ColorPicker color_select_view;
 //    @BindView(R.id.page_control_view)
-    protected PageControlView page_control_view;
+//    protected PageControlView page_control_view;
 //    @BindView(R.id.pb_loading)
     protected ProgressBar pb_loading;
 
@@ -68,6 +69,9 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        white_board_view = (WhiteboardView) getActivity().findViewById(R.id.white_board_view);
+        pb_loading = (ProgressBar) getActivity().findViewById(R.id.pb_loading);
+
         if (context instanceof GlobalStateChangeListener) {
             listener = (GlobalStateChangeListener) context;
         }
@@ -83,7 +87,13 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
         WhiteDisplayerState.setCustomGlobalStateClass(BoardState.class);
 //        WhiteSdkConfiguration configuration = new WhiteSdkConfiguration(DeviceType.touch, 10, 0.1);
         WhiteSdkConfiguration configuration = new WhiteSdkConfiguration(getString(R.string.whiteboard_app_id), true);
-        whiteSdk = new WhiteSdk(white_board_view, context, configuration);
+
+        if(white_board_view != null){
+            whiteSdk = new WhiteSdk(white_board_view, context, configuration);
+        }else{
+            Log.d(TAG, "White board view is null");
+        }
+
 
         boardManager.setListener(this);
     }
@@ -99,12 +109,12 @@ boardManager.disableDeviceInputs(true);
 
 
 //        appliance_view.setVisibility(boardManager.isDisableDeviceInputs() ? View.GONE : View.VISIBLE);
-        appliance_view.setVisibility(View.GONE);
-        appliance_view.setOnCheckedChangeListener(this);
-        color_select_view.setChangedListener(color -> {
-            appliance_view.check(appliance_view.getApplianceId(boardManager.getAppliance()));
-            boardManager.setStrokeColor(ColorUtil.colorToArray(color));
-        });
+//        appliance_view.setVisibility(View.GONE);
+//        appliance_view.setOnCheckedChangeListener(this);
+//        color_select_view.setChangedListener(color -> {
+//            appliance_view.check(appliance_view.getApplianceId(boardManager.getAppliance()));
+//            boardManager.setStrokeColor(ColorUtil.colorToArray(color));
+//        });
 
         white_board_view.setInitialScale(50);
         white_board_view.getSettings().setLoadWithOverviewMode(true);
@@ -160,12 +170,12 @@ boardManager.disableDeviceInputs(true);
                 ToastManager.showShort(disabled ? R.string.revoke_board : R.string.authorize_board);
             }
         }
-        if (appliance_view != null) {
-            appliance_view.setVisibility(disabled ? View.GONE : View.VISIBLE);
-        }
-        if (page_control_view != null) {
-            page_control_view.setVisibility(disabled ? View.GONE : View.VISIBLE);
-        }
+//        if (appliance_view != null) {
+//            appliance_view.setVisibility(disabled ? View.GONE : View.VISIBLE);
+//        }
+//        if (page_control_view != null) {
+//            page_control_view.setVisibility(disabled ? View.GONE : View.VISIBLE);
+//        }
         boardManager.disableDeviceInputs(disabled);
     }
 
@@ -208,7 +218,7 @@ boardManager.disableDeviceInputs(true);
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        color_select_view.setVisibility(View.GONE);
+//        color_select_view.setVisibility(View.GONE);
 //        switch (checkedId) {
 //            case R.id.tool_selector:
 //                boardManager.setAppliance(Appliance.SELECTOR);
@@ -272,12 +282,13 @@ boardManager.disableDeviceInputs(true);
     @Override
     public void onSceneStateChanged(SceneState state) {
         Log.e(TAG, "onSceneStateChanged");
-        page_control_view.setPageIndex(state.getIndex(), state.getScenes().length);
+//        page_control_view.setPageIndex(state.getIndex(), state.getScenes().length);
     }
 
     @Override
     public void onMemberStateChanged(MemberState state) {
-        appliance_view.check(appliance_view.getApplianceId(state.getCurrentApplianceName()));
+        Log.e(TAG, "onMemberStateChanged");
+//        appliance_view.check(appliance_view.getApplianceId(state.getCurrentApplianceName()));
     }
 
     @Override
