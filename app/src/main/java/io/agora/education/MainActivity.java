@@ -82,9 +82,9 @@ public class MainActivity extends DefaultInitActivity {
 
     @Override
     protected void initData() {
-        joinChannelAttempt(
-                "123", "234", "Small Classroom"
-        );
+//        joinChannelAttempt(
+//                "123", "234", "Small Classroom"
+//        );
     }
 
     @Override
