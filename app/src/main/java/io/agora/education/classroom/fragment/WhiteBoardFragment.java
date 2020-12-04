@@ -69,9 +69,6 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        white_board_view = (WhiteboardView) this.view.findViewById(R.id.white_board_view);
-        pb_loading = (ProgressBar) this.view.findViewById(R.id.pb_loading);
-
         if (context instanceof GlobalStateChangeListener) {
             listener = (GlobalStateChangeListener) context;
         }
@@ -87,6 +84,9 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
         WhiteDisplayerState.setCustomGlobalStateClass(BoardState.class);
 //        WhiteSdkConfiguration configuration = new WhiteSdkConfiguration(DeviceType.touch, 10, 0.1);
         WhiteSdkConfiguration configuration = new WhiteSdkConfiguration(getString(R.string.whiteboard_app_id), true);
+
+        white_board_view = (WhiteboardView) this.view.findViewById(R.id.white_board_view);
+        pb_loading = (ProgressBar) this.view.findViewById(R.id.pb_loading);
 
         if(white_board_view != null){
             whiteSdk = new WhiteSdk(white_board_view, context, configuration);
