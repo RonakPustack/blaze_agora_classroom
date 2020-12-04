@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 import io.agora.education.R;
 
 public class RtcVideoView extends ConstraintLayout {
+    final private String TAG = "RTCVideoView";
 
     //    @BindView(R.id.tv_name)
     protected TextView tv_name;
@@ -66,27 +67,40 @@ public class RtcVideoView extends ConstraintLayout {
     }
 
     public void setName(String name) {
-        ((Activity) getContext()).runOnUiThread(() -> tv_name.setText(name));
+//        ((Activity) getContext()).runOnUiThread(() -> tv_name.setText(name));
     }
 
     public void muteAudio(boolean muted) {
         ((Activity) getContext()).runOnUiThread(() -> {
-            ic_audio.setState(muted ? RtcAudioView.State.CLOSED : RtcAudioView.State.OPENED);
+//            ic_audio.setState(muted ? RtcAudioView.State.CLOSED : RtcAudioView.State.OPENED);
         });
 
     }
 
     public boolean isAudioMuted() {
-        return ic_audio.getState() == RtcAudioView.State.CLOSED;
+//        return ic_audio.getState() == RtcAudioView.State.CLOSED;
+        return true;
     }
 
     public void muteVideo(boolean muted) {
         ((Activity) getContext()).runOnUiThread(() -> {
             if (ic_video != null) {
                 ic_video.setSelected(!muted);
+            }else{
+                Log.d(TAG, "ic_video is null");
             }
-            layout_video.setVisibility(muted ? GONE : VISIBLE);
-            layout_place_holder.setVisibility(muted ? VISIBLE : GONE);
+            if(layout_video != null){
+                layout_video.setVisibility(muted ? GONE : VISIBLE);
+            }else{
+                Log.d(TAG, "layout_video is null");
+            }
+            if(layout_place_holder != null){
+                layout_place_holder.setVisibility(muted ? VISIBLE : GONE);
+            }else{
+                Log.d(TAG, "layout_place_holder is null");
+            }
+
+
             Log.e("RtcVideoView", "muteVideo：" + muted);
         });
     }
@@ -121,7 +135,7 @@ public class RtcVideoView extends ConstraintLayout {
 //    }
 
     public void setOnClickAudioListener(OnClickListener listener) {
-        ic_audio.setOnClickListener(listener);
+//        ic_audio.setOnClickListener(listener);
     }
 
     public void setOnClickVideoListener(OnClickListener listener) {
