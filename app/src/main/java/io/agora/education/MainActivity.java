@@ -110,6 +110,7 @@ public class MainActivity extends EduApplication {
         for (int result : grantResults) {
             if (result != PackageManager.PERMISSION_GRANTED) {
                 ToastManager.showShort(R.string.no_enough_permissions);
+                finish();
                 return;
             }
         }
