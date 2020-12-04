@@ -49,6 +49,11 @@ public class OneToOneClassActivity extends BaseClassActivity {
     @Override
     protected void initData() {
         super.initData();
+
+        video_teacher = findViewById(R.id.layout_video_teacher);
+        video_student = findViewById(R.id.layout_video_student);
+        layout_im = findViewById(R.id.layout_im);
+
         joinRoom(getMainEduRoom(), roomEntry.getUserName(), roomEntry.getUserUuid(), true, true, true,
                 new EduCallback<EduStudent>() {
                     @Override
@@ -66,14 +71,11 @@ public class OneToOneClassActivity extends BaseClassActivity {
     @Override
     protected void initView() {
         super.initView();
-        video_teacher = findViewById(R.id.layout_video_teacher);
-        video_student = findViewById(R.id.layout_video_student);
-        layout_im = findViewById(R.id.layout_im);
 
         video_teacher.init(R.layout.layout_video_one2one_class, true);
         video_student.init(R.layout.layout_video_one2one_class, true);
-        video_student.setOnClickAudioListener(v -> OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
-        video_student.setOnClickVideoListener(v -> OneToOneClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
+//        video_student.setOnClickAudioListener(v -> OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
+//        video_student.setOnClickVideoListener(v -> OneToOneClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
     }
 
     @Override
