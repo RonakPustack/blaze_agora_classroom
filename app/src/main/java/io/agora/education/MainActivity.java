@@ -47,6 +47,7 @@ public class MainActivity extends EduApplication {
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
 
+// Got the basic one to one activity to work
 //    @BindView(R.id.et_room_name)
 //    protected EditText et_room_name;
 //    @BindView(R.id.et_your_name)
