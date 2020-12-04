@@ -72,10 +72,19 @@ public class OneToOneClassActivity extends BaseClassActivity {
     protected void initView() {
         super.initView();
 
-        video_teacher.init(R.layout.layout_video_one2one_class, true);
-        video_student.init(R.layout.layout_video_one2one_class, true);
-//        video_student.setOnClickAudioListener(v -> OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
-//        video_student.setOnClickVideoListener(v -> OneToOneClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
+        if(video_teacher != null){
+            video_teacher.init(R.layout.layout_video_one2one_class, true);
+        }else{
+            Log.d(TAG, "video_teacher is null");
+        }
+
+        if(video_student != null){
+            video_student.init(R.layout.layout_video_one2one_class, true);
+            video_student.setOnClickAudioListener(v -> OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
+            video_student.setOnClickVideoListener(v -> OneToOneClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
+        }else{
+            Log.d(TAG, "video_student is null");
+        }
     }
 
     @Override

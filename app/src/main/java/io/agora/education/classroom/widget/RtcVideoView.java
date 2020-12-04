@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,13 +45,16 @@ public class RtcVideoView extends ConstraintLayout {
     }
 
     public void init(@LayoutRes int layoutResId, boolean showVideo) {
-        tv_name = findViewById(R.id.tv_name);
-        ic_audio = findViewById(R.id.ic_audio);
-        ic_video = findViewById(R.id.ic_video);
-        layout_place_holder = findViewById(R.id.layout_place_holder);
-        layout_video = findViewById(R.id.layout_video);
+        Log.d(TAG, "Inside init method");
 
-        inflate(getContext(), layoutResId, this);
+        View view = inflate(getContext(), layoutResId, this);
+
+        tv_name = view.findViewById(R.id.tv_name);
+        ic_audio = view.findViewById(R.id.ic_audio);
+        ic_video = view.findViewById(R.id.ic_video);
+        layout_place_holder = view.findViewById(R.id.layout_place_holder);
+        layout_video = view.findViewById(R.id.layout_video);
+
 //        ButterKnife.bind(this);
         if (ic_video != null) {
             ic_video.setVisibility(showVideo ? VISIBLE : GONE);
