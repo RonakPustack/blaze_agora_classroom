@@ -82,7 +82,7 @@ public class OneToOneClassActivity extends BaseClassActivity {
     protected int getClassType() {
         return Room.Type.ONE2ONE;
     }
-
+// Added minor comment for buildingv0.5.20
 //    @OnClick(R.id.iv_float)
 //    public void onClick(View view) {
 //        boolean isSelected = view.isSelected();
