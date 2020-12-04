@@ -19,16 +19,15 @@ import io.agora.education.R;
 
 public class RtcVideoView extends ConstraintLayout {
 
-//    @BindView(R.id.tv_name)
+    //    @BindView(R.id.tv_name)
     protected TextView tv_name;
-//    @BindView(R.id.ic_audio)
+    //    @BindView(R.id.ic_audio)
     protected RtcAudioView ic_audio;
-    @Nullable
-//    @BindView(R.id.ic_video)
+    //    @BindView(R.id.ic_video)
     protected ImageView ic_video;
-//    @BindView(R.id.layout_place_holder)
+    //    @BindView(R.id.layout_place_holder)
     protected FrameLayout layout_place_holder;
-//    @BindView(R.id.layout_video)
+    //    @BindView(R.id.layout_video)
     protected FrameLayout layout_video;
 
     public RtcVideoView(Context context) {
@@ -44,8 +43,14 @@ public class RtcVideoView extends ConstraintLayout {
     }
 
     public void init(@LayoutRes int layoutResId, boolean showVideo) {
+        tv_name = findViewById(R.id.tv_name);
+        ic_audio = findViewById(R.id.ic_audio);
+        ic_video = findViewById(R.id.ic_video);
+        layout_place_holder = findViewById(R.id.layout_place_holder);
+        layout_video = findViewById(R.id.layout_video);
+
         inflate(getContext(), layoutResId, this);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
         if (ic_video != null) {
             ic_video.setVisibility(showVideo ? VISIBLE : GONE);
         }
