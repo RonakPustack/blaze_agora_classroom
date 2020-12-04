@@ -73,8 +73,13 @@ public class TitleView extends ConstraintLayout {
     }
 
     public void setTitle(String title) {
-        Log.d(TAG, "Inside the set title method - 0.5.12 Release");
-//        ((Activity) getContext()).runOnUiThread(() -> tv_room_name.setText(title));
+
+        if(tv_room_name != null){
+            ((Activity) getContext()).runOnUiThread(() -> tv_room_name.setText(title));
+        }else{
+            Log.d(TAG, "tv_room_name was null inside setTitle");
+        }
+
     }
 
     public void setNetworkQuality(NetworkQuality quality) {
@@ -104,7 +109,10 @@ public class TitleView extends ConstraintLayout {
                     if (!time_view.isStarted()) {
                         time_view.start();
                     }
-//                    time_view.setTime(time);
+                    if(time_view != null){
+                        time_view.setTime(time);
+                    }
+
                 } else {
                     time_view.stop();
                 }

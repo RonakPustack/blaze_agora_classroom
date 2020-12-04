@@ -67,36 +67,49 @@ public class RtcVideoView extends ConstraintLayout {
     }
 
     public void setName(String name) {
-//        ((Activity) getContext()).runOnUiThread(() -> tv_name.setText(name));
+        if (tv_name != null) {
+            ((Activity) getContext()).runOnUiThread(() -> tv_name.setText(name));
+        } else {
+            Log.d(TAG, "TV Name is null");
+        }
     }
 
     public void muteAudio(boolean muted) {
         ((Activity) getContext()).runOnUiThread(() -> {
-//            ic_audio.setState(muted ? RtcAudioView.State.CLOSED : RtcAudioView.State.OPENED);
+            if (ic_audio != null) {
+                ic_audio.setState(muted ? RtcAudioView.State.CLOSED : RtcAudioView.State.OPENED);
+            } else {
+                Log.d(TAG, "muteAudio : Ic Audio is null");
+            }
+
         });
 
     }
 
     public boolean isAudioMuted() {
-//        return ic_audio.getState() == RtcAudioView.State.CLOSED;
-        return true;
+        if (ic_audio != null) {
+            return ic_audio.getState() == RtcAudioView.State.CLOSED;
+        } else {
+            Log.d(TAG, "isAudioMuted : Ic Audio is null");
+            return false;
+        }
     }
 
     public void muteVideo(boolean muted) {
         ((Activity) getContext()).runOnUiThread(() -> {
             if (ic_video != null) {
                 ic_video.setSelected(!muted);
-            }else{
+            } else {
                 Log.d(TAG, "ic_video is null");
             }
-            if(layout_video != null){
+            if (layout_video != null) {
                 layout_video.setVisibility(muted ? GONE : VISIBLE);
-            }else{
+            } else {
                 Log.d(TAG, "layout_video is null");
             }
-            if(layout_place_holder != null){
+            if (layout_place_holder != null) {
                 layout_place_holder.setVisibility(muted ? VISIBLE : GONE);
-            }else{
+            } else {
                 Log.d(TAG, "layout_place_holder is null");
             }
 
