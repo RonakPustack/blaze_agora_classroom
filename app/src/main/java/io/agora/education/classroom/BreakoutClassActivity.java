@@ -315,11 +315,11 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (tab.getPosition() == 0) {
-            transaction.show(chatRoomFragment).hide(userListFragment);
-        } else {
-            transaction.show(userListFragment).hide(chatRoomFragment);
-        }
+//        if (tab.getPosition() == 0) {
+//            transaction.show(chatRoomFragment).hide(userListFragment);
+//        } else {
+//            transaction.show(userListFragment).hide(chatRoomFragment);
+//        }
         transaction.commitNow();
     }
 
@@ -363,7 +363,7 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
             EduRoomStatus roomStatus = getMainEduRoom().getRoomStatus();
             title_view.setTimeState(roomStatus.getCourseState() == EduRoomState.START,
                     System.currentTimeMillis() - roomStatus.getStartTime());
-            chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+//            chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
             /**处理roomProperties*/
             Map<String, Object> roomProperties = classRoom.getRoomProperties();
             String boardJson = getProperty(roomProperties, BOARD);
@@ -440,7 +440,7 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
                 .getRoomInfo().getRoomUuid());
         boolean isGroupMsg = classRoom.equals(subEduRoom);
         if (isTeacherMsgToMain || isTeacherMsgToSub || isGroupMsg) {
-            chatRoomFragment.addMessage(chatMsg);
+//            chatRoomFragment.addMessage(chatMsg);
             Log.e(TAG, "成功添加一条聊天消息");
         }
     }
@@ -585,7 +585,7 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
                             System.currentTimeMillis() - roomStatus.getStartTime());
                     break;
                 case AllStudentsChat:
-                    chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+//                    chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
                     break;
                 default:
                     break;
@@ -627,7 +627,7 @@ public class BreakoutClassActivity extends BaseClassActivity implements TabLayou
                                 getLocalUserInfo(), getString(R.string.replay_link),
                                 EduChatMsgType.Text.getValue());
                         recordMsg.isMe = true;
-                        chatRoomFragment.addMessage(recordMsg);
+//                        chatRoomFragment.addMessage(recordMsg);
                     }
                 }
             }
