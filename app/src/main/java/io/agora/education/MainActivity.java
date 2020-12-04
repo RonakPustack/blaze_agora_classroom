@@ -75,7 +75,7 @@ public class MainActivity extends EduApplication {
                         Log.i(TAG, "This'll run 500 milliseconds later");
 
                         joinChannelAttempt(
-                                "123", "234", "Small Classroom"
+                                "789", "Ronak Student", "One to One Classroom"
                         );
                     }
                 },
