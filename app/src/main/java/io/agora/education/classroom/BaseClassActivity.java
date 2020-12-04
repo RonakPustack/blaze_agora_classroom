@@ -97,7 +97,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     protected FrameLayout layout_share_video;
 
     protected WhiteBoardFragment whiteboardFragment = new WhiteBoardFragment();
-    protected ChatRoomFragment chatRoomFragment = new ChatRoomFragment();
+//    protected ChatRoomFragment chatRoomFragment = new ChatRoomFragment();
 
     protected RoomEntry roomEntry;
     private volatile boolean isJoining = false, joinSuccess = false;
@@ -138,13 +138,13 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         title_view.setTitle(getMediaRoomName());
         getSupportFragmentManager().beginTransaction()
                 .remove(whiteboardFragment)
-                .remove(chatRoomFragment)
+//                .remove(chatRoomFragment)
                 .commitNowAllowingStateLoss();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.layout_whiteboard, whiteboardFragment)
-                .add(R.id.layout_chat_room, chatRoomFragment)
+//                .add(R.id.layout_chat_room, chatRoomFragment)
                 .show(whiteboardFragment)
-                .show(chatRoomFragment)
+//                .show(chatRoomFragment)
                 .commitNowAllowingStateLoss();
     }
 
@@ -372,7 +372,8 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     }
 
     private final void showLogId(String logId) {
-        if (!this.isFinishing() || !this.isDestroyed()) {
+//        if (!this.isFinishing() || !this.isDestroyed()) {
+            if (!this.isFinishing()) {
             ConfirmDialog.single(getString(R.string.uploadlog_success).concat(logId), null)
                     .show(getSupportFragmentManager(), null);
         }
@@ -472,7 +473,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         EduRoomStatus roomStatus = getMyMediaRoom().getRoomStatus();
         title_view.setTimeState(roomStatus.getCourseState() == EduRoomState.START,
                 System.currentTimeMillis() - roomStatus.getStartTime());
-        chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+//        chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
         /**处理roomProperties*/
         Map<String, Object> roomProperties = classRoom.getRoomProperties();
         /**判断roomProperties中是否有白板属性信息，如果没有，发起请求,等待RTM通知*/
@@ -530,7 +531,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         ChannelMsg.ChatMsg chatMsg = new ChannelMsg.ChatMsg(eduChatMsg.getFromUser(),
                 eduChatMsg.getMessage(), eduChatMsg.getType());
         chatMsg.isMe = chatMsg.getFromUser().equals(classRoom.getLocalUser().getUserInfo());
-        chatRoomFragment.addMessage(chatMsg);
+//        chatRoomFragment.addMessage(chatMsg);
         Log.e(TAG, "成功添加一条聊天消息");
     }
 
@@ -602,7 +603,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
                         System.currentTimeMillis() - roomStatus.getStartTime());
                 break;
             case AllStudentsChat:
-                chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+//                chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
                 break;
             default:
                 break;
@@ -645,7 +646,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
                     RecordMsg recordMsg = new RecordMsg(getMediaRoomUuid(), getLocalUserInfo(),
                             getString(R.string.replay_link), EduChatMsgType.Text.getValue());
                     recordMsg.isMe = true;
-                    chatRoomFragment.addMessage(recordMsg);
+//                    chatRoomFragment.addMessage(recordMsg);
                 }
             }
         }
@@ -670,7 +671,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     public void onLocalUserUpdated(@NotNull EduUserEvent userEvent, @NotNull EduUserStateChangeType type) {
         /**更新用户信息*/
         EduUserInfo userInfo = userEvent.getModifiedUser();
-        chatRoomFragment.setMuteLocal(!userInfo.isChatAllowed());
+//        chatRoomFragment.setMuteLocal(!userInfo.isChatAllowed());
     }
 
     @Override
