@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
         initView();
     }
+
 
     @LayoutRes
     protected abstract int getLayoutResId();

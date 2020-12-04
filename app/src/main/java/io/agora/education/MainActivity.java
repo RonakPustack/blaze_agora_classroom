@@ -1,5 +1,6 @@
 package io.agora.education;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -29,6 +30,7 @@ import io.agora.education.classroom.bean.channel.Room;
 import io.agora.education.service.CommonService;
 import io.agora.education.service.bean.ResponseBody;
 import io.agora.education.service.bean.request.RoomCreateOptionsReq;
+import io.agora.education.util.AppUtil;
 
 import static io.agora.education.EduApplication.getAppId;
 import static io.agora.education.EduApplication.getCustomerCer;
@@ -47,6 +49,10 @@ public class MainActivity extends EduApplication {
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
 
+    private final String ROOM_NAME = "789";
+    private final String USER_NAME = "RonakStudent";
+    private final String CLASS_ROOM_TYPE = "One to One Classroom";
+
 // Got the basic one to one activity to work
 //    @BindView(R.id.et_room_name)
 //    protected EditText et_room_name;
@@ -59,8 +65,6 @@ public class MainActivity extends EduApplication {
 
     private String url;
 
-
-
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main;
@@ -68,19 +72,26 @@ public class MainActivity extends EduApplication {
 
     @Override
     protected void initData() {
-        Log.d( TAG, "Init data method");
+        Log.d(TAG, "Init data method");
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        Log.i(TAG, "This'll run 500 milliseconds later");
-
-                        joinChannelAttempt(
-                                "789", "Ronak Student", "One to One Classroom"
-                        );
+                        Log.i(TAG, "This'll run 300 milliseconds later");
+                        checkPermissionsAndJoinRoom();
                     }
                 },
-                500);
+                300);
+    }
+
+    void checkPermissionsAndJoinRoom(){
+        if (AppUtil.checkAndRequestAppPermission(this, new String[]{
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        }, REQUEST_CODE_RTC)) {
+            start();
+        }
     }
 
     @Override
@@ -104,7 +115,7 @@ public class MainActivity extends EduApplication {
         }
         switch (requestCode) {
             case REQUEST_CODE_RTC:
-//                start();
+                start();
                 break;
             default:
                 break;
@@ -132,13 +143,7 @@ public class MainActivity extends EduApplication {
 //                if (AppUtil.isFastClick()) {
 //                    return;
 //                }
-//                if (AppUtil.checkAndRequestAppPermission(this, new String[]{
-//                        Manifest.permission.RECORD_AUDIO,
-//                        Manifest.permission.CAMERA,
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-//                }, REQUEST_CODE_RTC)) {
-//                    start();
-//                }
+
 //                break;
 //            case R.id.tv_one2one:
 //                et_room_type.setText(R.string.one2one_class);
@@ -178,7 +183,7 @@ public class MainActivity extends EduApplication {
         String userUuid = userName + EduUserRole.STUDENT.getValue();
         String roomUuid = roomName + roomType;
 
-        Log.d( TAG, "Join channel method attempt");
+        Log.d(TAG, "Join channel method attempt");
         System.out.println(getAppId());
 
         EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, userName);
@@ -203,51 +208,32 @@ public class MainActivity extends EduApplication {
         });
     }
 
-//    private void start() {
-////        String roomNameStr = et_room_name.getText().toString();
-////        if (TextUtils.isEmpty(roomNameStr)) {
-////            ToastManager.showShort(R.string.room_name_should_not_be_empty);
-////            return;
-////        }
-////
-////        String yourNameStr = et_your_name.getText().toString();
-////        if (TextUtils.isEmpty(yourNameStr)) {
-////            ToastManager.showShort(R.string.your_name_should_not_be_empty);
-////            return;
-////        }
-////
-////        String roomTypeStr = et_room_type.getText().toString();
-////        if (TextUtils.isEmpty(roomTypeStr)) {
-////            ToastManager.showShort(R.string.room_type_should_not_be_empty);
-////            return;
-////        }
-//
-//        /**userUuid和roomUuid需用户自己指定，并保证唯一性*/
-//        int roomType = getClassType(roomTypeStr);
-//        String userUuid = yourNameStr + EduUserRole.STUDENT.getValue();
-//        String roomUuid = roomNameStr + roomType;
-//
-//        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, yourNameStr);
-//        options.setCustomerId(getCustomerId());
-//        options.setCustomerCertificate(getCustomerCer());
-//        options.setLogFileDir(getCacheDir().getAbsolutePath());
-//        options.setTag(EDULOGINTAG);
-//        EduManager.init(options, new EduCallback<EduManager>() {
-//            @Override
-//            public void onSuccess(@Nullable EduManager res) {
-//                if (res != null) {
-//                    Log.e(TAG, "初始化EduManager成功");
-//                    setManager(res);
-//                    createRoom(yourNameStr, userUuid, roomNameStr, roomUuid, roomType);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int code, @Nullable String reason) {
-//                Log.e(TAG, "初始化EduManager失败-> code:" + code + ",reason:" + reason);
-//            }
-//        });
-//    }
+    private void start() {
+        int roomType = getClassType(CLASS_ROOM_TYPE);
+        String userUuid = USER_NAME + EduUserRole.STUDENT.getValue();
+        String roomUuid = ROOM_NAME + roomType;
+
+        EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, USER_NAME);
+        options.setCustomerId(getCustomerId());
+        options.setCustomerCertificate(getCustomerCer());
+        options.setLogFileDir(getCacheDir().getAbsolutePath());
+        options.setTag(EDULOGINTAG);
+        EduManager.init(options, new EduCallback<EduManager>() {
+            @Override
+            public void onSuccess(@Nullable EduManager res) {
+                if (res != null) {
+                    Log.e(TAG, "初始化EduManager成功");
+                    setManager(res);
+                    createRoom(USER_NAME, userUuid, USER_NAME, roomUuid, roomType);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, @Nullable String reason) {
+                Log.e(TAG, "初始化EduManager失败-> code:" + code + ",reason:" + reason);
+            }
+        });
+    }
 
     @Room.Type
     private int getClassType(String roomTypeStr) {
