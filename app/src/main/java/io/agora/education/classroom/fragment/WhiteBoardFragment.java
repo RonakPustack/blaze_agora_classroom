@@ -69,8 +69,8 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        white_board_view = (WhiteboardView) getActivity().findViewById(R.id.white_board_view);
-        pb_loading = (ProgressBar) getActivity().findViewById(R.id.pb_loading);
+        white_board_view = (WhiteboardView) this.view.findViewById(R.id.white_board_view);
+        pb_loading = (ProgressBar) this.view.findViewById(R.id.pb_loading);
 
         if (context instanceof GlobalStateChangeListener) {
             listener = (GlobalStateChangeListener) context;
@@ -150,8 +150,13 @@ public class WhiteBoardFragment extends BaseFragment implements RadioGroup.OnChe
 //                    runOnUiThread(() -> pb_loading.setVisibility(View.VISIBLE));
                     RoomParams params = new RoomParams(uuid, boardToken);
                     params.setCameraBound(new CameraBound(miniScale, maxScale));
-                    boardManager.init(whiteSdk, params);
-                    boardManager.refreshViewSize();
+                    if(whiteSdk != null){
+                        boardManager.init(whiteSdk, params);
+                        boardManager.refreshViewSize();
+                    }else{
+                        Log.d(TAG, "whiteSdk is null");
+                    }
+
                 }
 
 
