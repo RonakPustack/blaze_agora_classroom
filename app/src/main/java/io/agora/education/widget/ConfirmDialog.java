@@ -106,6 +106,9 @@ public class ConfirmDialog extends DialogFragment {
             public void onClick(View v) {
                 if (listener != null)
                     listener.onClick(true);
+                if (isCancelable()) {
+                    dismiss();
+                }
             }
         });
 
@@ -114,12 +117,13 @@ public class ConfirmDialog extends DialogFragment {
             public void onClick(View v) {
                 if (listener != null)
                     listener.onClick(false);
+                if (isCancelable()) {
+                    dismiss();
+                }
             }
         });
 
-//        if (isCancelable()) {
-//            dismiss();
-//        }
+
 
         tv_dialog_cancel.setVisibility(isSingle ? View.GONE : View.VISIBLE);
         line2.setVisibility(isSingle ? View.GONE : View.VISIBLE);
