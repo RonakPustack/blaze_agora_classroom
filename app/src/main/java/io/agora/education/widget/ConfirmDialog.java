@@ -83,19 +83,46 @@ public class ConfirmDialog extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.layout_dialog_confirm, container, false);
-        ButterKnife.bind(this, root);
+//        ButterKnife.bind(this, root);
+        tv_content = root.findViewById(R.id.tv_content);
+        tv_dialog_cancel = root.findViewById(R.id.tv_dialog_cancel);
+        tv_dialog_confirm = root.findViewById(R.id.tv_dialog_confirm);
+        line2 = root.findViewById(R.id.line2);
+
         tv_content.setText(content);
         if (!TextUtils.isEmpty(cancelText))
             tv_dialog_cancel.setText(cancelText);
         if (!TextUtils.isEmpty(confirmText))
             tv_dialog_confirm.setText(confirmText);
+
+        tv_dialog_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null)
+                    listener.onClick(true);
+            }
+        });
+
+        tv_dialog_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null)
+                    listener.onClick(false);
+            }
+        });
+
+        if (isCancelable()) {
+            dismiss();
+        }
+
         tv_dialog_cancel.setVisibility(isSingle ? View.GONE : View.VISIBLE);
         line2.setVisibility(isSingle ? View.GONE : View.VISIBLE);
         return root;
     }
 
 //    @OnClick({R.id.tv_dialog_cancel, R.id.tv_dialog_confirm})
-//    public void onClick(View view) {
+//    public void onClicks(View view) {
+////        if(R.id.)
 //        switch (view.getId()) {
 //            case R.id.tv_dialog_cancel:
 //                if (listener != null)

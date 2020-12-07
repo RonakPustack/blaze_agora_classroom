@@ -111,12 +111,11 @@ public class OneToOneClassActivity extends BaseClassActivity {
 
         video_student.setName(getLocalUserInfo().getUserName());
         title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
-        runOnUiThread(() -> {
-            /**一对一，默认学生可以针对白板进行输入*/
-            whiteboardFragment.disableCameraTransform(false);
-            whiteboardFragment.disableDeviceInputs(false);
-        });
-
+//        runOnUiThread(() -> {
+//            /**一对一，默认学生可以针对白板进行输入*/
+//            whiteboardFragment.disableCameraTransform(false);
+//            whiteboardFragment.disableDeviceInputs(false);
+//        });
     }
 
     @Override
@@ -184,7 +183,7 @@ public class OneToOneClassActivity extends BaseClassActivity {
 //            video_teacher.muteAudio(!streamInfo.getHasAudio());
 //        }
         for (EduStreamInfo streamInfo : streams) {
-            /**一对一场景下，远端流就是老师的流*/
+            /**In one scenario, the remote stream is the teacher’s stream*/
             switch (streamInfo.getVideoSourceType()) {
                 case CAMERA:
                     video_teacher.setName(streamInfo.getPublisher().getUserName());
@@ -193,7 +192,11 @@ public class OneToOneClassActivity extends BaseClassActivity {
                     video_teacher.muteAudio(!streamInfo.getHasAudio());
                     break;
                 case SCREEN:
-                    /**有屏幕分享的流进入，说明是老师打开了屏幕分享，此时把这个流渲染出来*/
+                    /**
+                     If there is a screen sharing stream entered,
+                     it means that the teacher turned on screen sharing,
+                     and this stream is rendered at this time
+                     **/
                     runOnUiThread(() -> {
                         layout_whiteboard.setVisibility(View.GONE);
                         layout_share_video.setVisibility(View.VISIBLE);
@@ -212,7 +215,7 @@ public class OneToOneClassActivity extends BaseClassActivity {
         super.onRemoteStreamsAdded(streamEvents, classRoom);
         for (EduStreamEvent streamEvent : streamEvents) {
             EduStreamInfo streamInfo = streamEvent.getModifiedStream();
-            /**一对一场景下，远端流就是老师的流*/
+            /**In one scenario, the remote stream is the teacher’s stream*/
             switch (streamInfo.getVideoSourceType()) {
                 case CAMERA:
                     video_teacher.setName(streamInfo.getPublisher().getUserName());
@@ -242,7 +245,6 @@ public class OneToOneClassActivity extends BaseClassActivity {
         EduStreamInfo streamInfo = streamEvent.getModifiedStream();
         switch (streamInfo.getVideoSourceType()) {
             case CAMERA:
-                /**一对一场景下，远端流就是老师的流*/
                 video_teacher.setName(streamInfo.getPublisher().getUserName());
                 renderStream(getMainEduRoom(), streamInfo, video_teacher.getVideoLayout());
                 video_teacher.muteVideo(!streamInfo.getHasVideo());
@@ -256,7 +258,6 @@ public class OneToOneClassActivity extends BaseClassActivity {
     @Override
     public void onRemoteStreamsRemoved(@NotNull List<EduStreamEvent> streamEvents, @NotNull EduRoom classRoom) {
         super.onRemoteStreamsRemoved(streamEvents, classRoom);
-        /**一对一场景下，远端流就是老师的流*/
         for (EduStreamEvent streamEvent : streamEvents) {
             EduStreamInfo streamInfo = streamEvent.getModifiedStream();
             switch (streamInfo.getVideoSourceType()) {
@@ -331,7 +332,7 @@ public class OneToOneClassActivity extends BaseClassActivity {
         renderStream(getMainEduRoom(), streamInfo, video_student.getVideoLayout());
         video_student.muteVideo(!streamInfo.getHasVideo());
         video_student.muteAudio(!streamInfo.getHasAudio());
-        Log.e(TAG, "本地流被添加：" + getLocalCameraStream().getHasAudio() + "," + streamInfo.getHasVideo());
+        Log.e(TAG, "Local stream is added：" + getLocalCameraStream().getHasAudio() + "," + streamInfo.getHasVideo());
     }
 
     @Override
@@ -340,17 +341,20 @@ public class OneToOneClassActivity extends BaseClassActivity {
         EduStreamInfo streamInfo = streamEvent.getModifiedStream();
         video_student.muteVideo(!streamInfo.getHasVideo());
         video_student.muteAudio(!streamInfo.getHasAudio());
-        Log.e(TAG, "本地流被修改：" + streamInfo.getHasAudio() + "," + streamInfo.getHasVideo());
+        Log.d(TAG, "\n" + "Local stream is modified：" + streamInfo.getHasAudio() + "," + streamInfo.getHasVideo());
     }
 
     @Override
     public void onLocalStreamRemoved(@NotNull EduStreamEvent streamEvent) {
         super.onLocalStreamRemoved(streamEvent);
-        /**一对一场景下，此回调被调用就说明classroom结束，人员退出；所以此回调可以不处理*/
+        /**
+         In a scenario, this callback is called
+         to indicate that the classroom is over and
+         the staff quit; so this callback can be left unprocessed*/
         EduStreamInfo streamInfo = streamEvent.getModifiedStream();
         renderStream(getMainEduRoom(), streamInfo, null);
         video_student.muteVideo(true);
         video_student.muteAudio(true);
-        Log.e(TAG, "本地流被移除");
+        Log.d(TAG, "Local stream is removed");
     }
 }

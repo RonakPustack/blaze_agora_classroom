@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import butterknife.BindView;
@@ -34,6 +35,8 @@ public class TitleView extends ConstraintLayout {
     protected TextView tv_room_name;
 //    @BindView(R.id.time_view)
     protected TimeView time_view;
+
+    protected AppCompatImageView iv_close;
 
     public TitleView(Context context) {
         this(context, null);
@@ -63,6 +66,19 @@ public class TitleView extends ConstraintLayout {
         iv_quality = view.findViewById(R.id.iv_quality);
         tv_room_name = view.findViewById(R.id.tv_room_name);
         time_view = view.findViewById(R.id.time_view);
+        iv_close = view.findViewById(R.id.iv_close);
+
+        iv_close.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+
+                if (context instanceof BaseClassActivity) {
+                    ((BaseClassActivity) context).showLeaveDialog();
+                }
+
+            }
+        });
     }
 
     public void hideTime() {
@@ -104,36 +120,45 @@ public class TitleView extends ConstraintLayout {
     public void setTimeState(boolean start, long time) {
         ((Activity) getContext()).runOnUiThread(() -> {
             if (time_view != null) {
+                Log.d(TAG, "Time view is not null");
                 if (start) {
                     if (!time_view.isStarted()) {
                         time_view.start();
                     }
                     if(time_view != null){
+                        Log.d(TAG, "Time view is not null and starting the clock");
                         time_view.setTime(time);
                     }
 
                 } else {
+                    Log.d(TAG, "Stopping the time view");
                     time_view.stop();
                 }
                 time_view.setTime(time);
+            }else{
+                Log.d(TAG, "Time view is null");
             }
         });
+        Log.d(TAG, "Setting time");
     }
 
 //    @OnClick({R.id.iv_close, R.id.iv_uploadLog})
-//    public void onClock(View view) {
+//    public void onCrossTap(View view) {
 //        Context context = getContext();
 //        if (context instanceof BaseClassActivity) {
-//            switch (view.getId()) {
-//                case R.id.iv_close:
-//                    ((BaseClassActivity) context).showLeaveDialog();
-//                    break;
-//                case R.id.iv_uploadLog:
-//                    ((BaseClassActivity) context).uploadLog();
-//                    break;
-//                default:
-//                    break;
+//            if(R.id.iv_close == view.getId()){
+//                ((BaseClassActivity) context).showLeaveDialog();
 //            }
+////            switch (view.getId()) {
+////                case R.id.iv_close:
+////                    ((BaseClassActivity) context).showLeaveDialog();
+////                    break;
+////                case R.id.iv_uploadLog:
+////                    ((BaseClassActivity) context).uploadLog();
+////                    break;
+////                default:
+////                    break;
+////            }
 //        }
 //    }
 
