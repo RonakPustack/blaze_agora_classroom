@@ -370,7 +370,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
                     BaseClassActivity.this.finish();
                 }
             }
-        }).show(getSupportFragmentManager(), null);
+        }).show(getSupportFragmentManager(), TAG);
 
         Log.e(TAG, "Got over with displaying leave dialog");
     }

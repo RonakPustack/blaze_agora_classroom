@@ -84,11 +84,11 @@ public class MainActivity extends EduApplication {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        Log.i(TAG, "This'll run 300 milliseconds later");
+                        Log.i(TAG, "This'll run 100 milliseconds later");
                         checkPermissionsAndJoinRoom();
                     }
                 },
-                300);
+                100);
     }
 
     void checkPermissionsAndJoinRoom(){

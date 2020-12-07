@@ -117,9 +117,9 @@ public class ConfirmDialog extends DialogFragment {
             }
         });
 
-        if (isCancelable()) {
-            dismiss();
-        }
+//        if (isCancelable()) {
+//            dismiss();
+//        }
 
         tv_dialog_cancel.setVisibility(isSingle ? View.GONE : View.VISIBLE);
         line2.setVisibility(isSingle ? View.GONE : View.VISIBLE);
