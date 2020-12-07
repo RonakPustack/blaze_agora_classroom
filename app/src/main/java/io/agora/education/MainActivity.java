@@ -112,6 +112,13 @@ public class MainActivity extends EduApplication {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        // Finish the current activity when navigating to a new one
+        finish();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         for (int result : grantResults) {
@@ -254,7 +261,7 @@ public class MainActivity extends EduApplication {
                         if (error.getCode() == AgoraError.ROOM_ALREADY_EXISTS.getValue()) {
                             Intent intent = createIntent(yourNameStr, yourUuid, roomNameStr, roomUuid, roomType);
                             startActivityForResult(intent, REQUEST_CODE_RTE);
-                            finish();
+//                            finish();
                         } else {
                             Log.e(TAG, "排课失败");
                         }
