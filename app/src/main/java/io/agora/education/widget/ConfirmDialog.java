@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,16 @@ public class ConfirmDialog extends DialogFragment {
     protected DialogClickListener listener;
 
     public static ConfirmDialog normal(String content, DialogClickListener listener) {
+
+        Log.e("ConfirmDialog", "Displaying leave dialog");
+
         ConfirmDialog fragment = new ConfirmDialog();
         fragment.content = content;
         fragment.isSingle = false;
         fragment.listener = listener;
         fragment.setCancelable(true);
+
+        Log.e("ConfirmDialog", "Returning fragment : " + fragment);
         return fragment;
     }
 

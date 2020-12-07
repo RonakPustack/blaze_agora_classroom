@@ -77,7 +77,7 @@ public class TitleView extends ConstraintLayout {
                 Log.e(TAG, "Clicked the cross button");
                 // Minor change
                 Log.e(TAG, context.getClass().toString());
-                ((OneToOneClassActivity) context).showLeaveDialog();
+                ((BaseClassActivity) context).showLeaveDialog();
 
             }
         });

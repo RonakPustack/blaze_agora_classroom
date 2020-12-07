@@ -360,15 +360,19 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     }
 
     public final void showLeaveDialog() {
+        Log.e(TAG, "Displaying leave dialog");
+
         ConfirmDialog.normal(getString(R.string.confirm_leave_room_content), confirm -> {
             if (confirm) {
-                /**退出activity之前离开eduRoom*/
+                /**drop out activity Left before eduRoom*/
                 if (getMainEduRoom() != null) {
                     getMainEduRoom().leave();
                     BaseClassActivity.this.finish();
                 }
             }
         }).show(getSupportFragmentManager(), null);
+
+        Log.e(TAG, "Got over with displaying leave dialog");
     }
 
     private final void showLogId(String logId) {
