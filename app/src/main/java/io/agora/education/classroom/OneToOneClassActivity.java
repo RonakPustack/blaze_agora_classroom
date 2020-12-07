@@ -2,6 +2,9 @@ package io.agora.education.classroom;
 
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -49,6 +52,8 @@ public class OneToOneClassActivity extends BaseClassActivity {
     @Override
     protected void initData() {
         super.initData();
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         video_teacher = findViewById(R.id.layout_video_teacher);
         video_student = findViewById(R.id.layout_video_student);
@@ -102,26 +107,28 @@ public class OneToOneClassActivity extends BaseClassActivity {
     @Override
     public void onRemoteUsersInitialized(@NotNull List<? extends EduUserInfo> users, @NotNull EduRoom classRoom) {
         super.onRemoteUsersInitialized(users, classRoom);
-//        video_student.setName(getLocalUserInfo().getUserName());
-//        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
-//        runOnUiThread(() -> {
-//            /**一对一，默认学生可以针对白板进行输入*/
-//            whiteboardFragment.disableCameraTransform(false);
-//            whiteboardFragment.disableDeviceInputs(false);
-//        });
+        Log.d(TAG, "inside onRemoteUsersInitialized");
+
+        video_student.setName(getLocalUserInfo().getUserName());
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        runOnUiThread(() -> {
+            /**一对一，默认学生可以针对白板进行输入*/
+            whiteboardFragment.disableCameraTransform(false);
+            whiteboardFragment.disableDeviceInputs(false);
+        });
 
     }
 
     @Override
     public void onRemoteUsersJoined(@NotNull List<? extends EduUserInfo> users, @NotNull EduRoom classRoom) {
         super.onRemoteUsersJoined(users, classRoom);
-//        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
     }
 
     @Override
     public void onRemoteUserLeft(@NotNull EduUserEvent userEvent, @NotNull EduRoom classRoom) {
         super.onRemoteUserLeft(userEvent, classRoom);
-//        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
     }
 
     @Override
