@@ -254,7 +254,7 @@ public class MainActivity extends EduApplication {
                         if (error.getCode() == AgoraError.ROOM_ALREADY_EXISTS.getValue()) {
                             Intent intent = createIntent(yourNameStr, yourUuid, roomNameStr, roomUuid, roomType);
                             startActivityForResult(intent, REQUEST_CODE_RTE);
-//                            finish();
+                            finish();
                         } else {
                             Log.e(TAG, "排课失败");
                         }
