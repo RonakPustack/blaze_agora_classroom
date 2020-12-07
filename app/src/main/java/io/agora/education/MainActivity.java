@@ -49,11 +49,10 @@ public class MainActivity extends EduApplication {
     public static final String REASON = "reason";
     private final int EDULOGINTAG = 999;
 
-    private final String ROOM_NAME = "789";
-    private final String USER_NAME = "RonakStudent";
-    private final String CLASS_ROOM_TYPE = "One to One Classroom";
+    private String USER_NAME;
+    private String ROOM_NAME;
 
-// Got the basic one to one activity to work
+    // Got the basic one to one activity to work
 //    @BindView(R.id.et_room_name)
 //    protected EditText et_room_name;
 //    @BindView(R.id.et_your_name)
@@ -73,6 +72,14 @@ public class MainActivity extends EduApplication {
     @Override
     protected void initData() {
         Log.d(TAG, "Init data method");
+
+        Intent intent = getIntent();
+
+        String userName = intent.getStringExtra("user_name");
+        String roomId = intent.getStringExtra("room_id");
+
+        USER_NAME = userName;
+        ROOM_NAME = roomId;
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -132,40 +139,6 @@ public class MainActivity extends EduApplication {
             ToastManager.showShort(String.format(getString(R.string.function_error), code, reason));
         }
     }
-
-//    @OnClick({R.id.iv_setting, R.id.et_room_type, R.id.btn_join, R.id.tv_one2one, R.id.tv_small_class,
-//            R.id.tv_large_class, R.id.tv_breakout_class})
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.iv_setting:
-//                startActivity(new Intent(this, SettingActivity.class));
-//                break;
-//            case R.id.btn_join:
-//                if (AppUtil.isFastClick()) {
-//                    return;
-//                }
-
-//                break;
-//            case R.id.tv_one2one:
-//                et_room_type.setText(R.string.one2one_class);
-//                card_room_type.setVisibility(View.GONE);
-//                break;
-//            case R.id.tv_small_class:
-//                et_room_type.setText(R.string.small_class);
-//                card_room_type.setVisibility(View.GONE);
-//                break;
-//            case R.id.tv_large_class:
-//                et_room_type.setText(R.string.large_class);
-//                card_room_type.setVisibility(View.GONE);
-//                break;
-//            case R.id.tv_breakout_class:
-//                et_room_type.setText(R.string.breakout);
-//                card_room_type.setVisibility(View.GONE);
-//                break;
-//            default:
-//                break;
-//        }
-//    }
 //
 //    @OnTouch(R.id.et_room_type)
 //    public void onTouch(View view, MotionEvent event) {
@@ -210,7 +183,9 @@ public class MainActivity extends EduApplication {
     }
 
     private void start() {
+        String CLASS_ROOM_TYPE = "One to One Classroom";
         int roomType = getClassType(CLASS_ROOM_TYPE);
+
         String userUuid = USER_NAME + EduUserRole.STUDENT.getValue();
         String roomUuid = ROOM_NAME + roomType;
 
@@ -263,6 +238,7 @@ public class MainActivity extends EduApplication {
                         Log.e(TAG, "调用scheduleClass函数成功");
                         Intent intent = createIntent(yourNameStr, yourUuid, roomNameStr, roomUuid, roomType);
                         startActivityForResult(intent, REQUEST_CODE_RTE);
+                        finish();
                     }
 
                     @Override
@@ -278,6 +254,7 @@ public class MainActivity extends EduApplication {
                         if (error.getCode() == AgoraError.ROOM_ALREADY_EXISTS.getValue()) {
                             Intent intent = createIntent(yourNameStr, yourUuid, roomNameStr, roomUuid, roomType);
                             startActivityForResult(intent, REQUEST_CODE_RTE);
+                            finish();
                         } else {
                             Log.e(TAG, "排课失败");
                         }
