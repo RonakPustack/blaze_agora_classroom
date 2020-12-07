@@ -73,11 +73,12 @@ public class TitleView extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 Context context = getContext();
+
                 Log.e(TAG, "Clicked the cross button");
                 // Minor change
                 Log.e(TAG, context.getClass().toString());
                 ((OneToOneClassActivity) context).showLeaveDialog();
-//                    ((OneToOneClassActivity) context).showLeaveDialog();
+
             }
         });
     }
