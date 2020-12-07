@@ -73,11 +73,8 @@ public class TitleView extends ConstraintLayout {
             public void onClick(View v) {
                 Context context = getContext();
                 Log.e(TAG, "Clicked the cross button");
-
-                if (context instanceof BaseClassActivity) {
-                    ((BaseClassActivity) context).showLeaveDialog();
-                }
-
+                Log.e(TAG, context.getClass().toString());
+//                    ((BaseClassActivity) context).showLeaveDialog();
             }
         });
     }
