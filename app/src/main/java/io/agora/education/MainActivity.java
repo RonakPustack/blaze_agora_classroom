@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -62,6 +64,9 @@ public class MainActivity extends EduApplication {
 //    @BindView(R.id.card_room_type)
 //    protected CardView card_room_type;
 
+    protected ProgressBar progressBar;
+    protected TextView textView;
+
     private String url;
 
     @Override
@@ -109,6 +114,11 @@ public class MainActivity extends EduApplication {
 //            et_room_name.setSelection(et_room_name.length());
 //            et_your_name.setText("123");
 //        }
+
+        progressBar = findViewById(R.id.progressBarMainActivity);
+        textView = findViewById(R.id.pleaseWaitTV);
+
+        textView.setText("Please Wait...");
     }
 
     @Override
