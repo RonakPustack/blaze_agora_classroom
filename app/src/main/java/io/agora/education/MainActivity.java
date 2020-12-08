@@ -118,7 +118,9 @@ public class MainActivity extends EduApplication {
         progressBar = findViewById(R.id.progressBarMainActivity);
         textView = findViewById(R.id.pleaseWaitTV);
 
-        textView.setText("Please Wait...");
+        if(textView != null){
+            textView.setText("Please Wait...");
+        }
     }
 
     @Override
