@@ -115,7 +115,7 @@ public class OneToTwoClassActivity extends BaseClassActivity {
         Log.d(TAG, "inside onRemoteUsersInitialized");
 
         video_student.setName(getLocalUserInfo().getUserName());
-        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getLocalUserName()));
 //        runOnUiThread(() -> {
 //            /**一对一，默认学生可以针对白板进行输入*/
 //            whiteboardFragment.disableCameraTransform(false);
@@ -126,13 +126,13 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     @Override
     public void onRemoteUsersJoined(@NotNull List<? extends EduUserInfo> users, @NotNull EduRoom classRoom) {
         super.onRemoteUsersJoined(users, classRoom);
-        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getLocalUserName()));
     }
 
     @Override
     public void onRemoteUserLeft(@NotNull EduUserEvent userEvent, @NotNull EduRoom classRoom) {
         super.onRemoteUserLeft(userEvent, classRoom);
-        title_view.setTitle(String.format(Locale.getDefault(), "%s", getMediaRoomName()));
+        title_view.setTitle(String.format(Locale.getDefault(), "%s", getLocalUserName()));
     }
 
     @Override

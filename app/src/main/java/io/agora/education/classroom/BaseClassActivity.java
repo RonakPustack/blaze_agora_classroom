@@ -141,7 +141,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     }
 
     protected void showFragmentWithJoinSuccess() {
-        title_view.setTitle(getMediaRoomName());
+        title_view.setTitle(getLocalUserName());
         getSupportFragmentManager().beginTransaction()
                 .remove(whiteboardFragment)
                 .remove(chatRoomFragment)
@@ -419,6 +419,11 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         return getMediaRoomInfo().getRoomName();
     }
 
+    public final String getLocalUserName() {
+        String localUserName = getMyMediaRoom().getLocalUser().getUserInfo().getUserName();
+        return localUserName + "'s Stream";
+    }
+
     /**
      * 为流(主要是视频流)设置一个渲染区域
      */
@@ -483,7 +488,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         EduRoomStatus roomStatus = getMyMediaRoom().getRoomStatus();
         title_view.setTimeState(roomStatus.getCourseState() == EduRoomState.START,
                 System.currentTimeMillis() - roomStatus.getStartTime());
-//        chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+        chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
         /**处理roomProperties*/
         Map<String, Object> roomProperties = classRoom.getRoomProperties();
         /**判断roomProperties中是否有白板属性信息，如果没有，发起请求,等待RTM通知*/
@@ -541,7 +546,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         ChannelMsg.ChatMsg chatMsg = new ChannelMsg.ChatMsg(eduChatMsg.getFromUser(),
                 eduChatMsg.getMessage(), eduChatMsg.getType());
         chatMsg.isMe = chatMsg.getFromUser().equals(classRoom.getLocalUser().getUserInfo());
-//        chatRoomFragment.addMessage(chatMsg);
+        chatRoomFragment.addMessage(chatMsg);
         Log.e(TAG, "成功添加一条聊天消息");
     }
 
@@ -613,7 +618,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
                         System.currentTimeMillis() - roomStatus.getStartTime());
                 break;
             case AllStudentsChat:
-//                chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
+                chatRoomFragment.setMuteAll(!roomStatus.isStudentChatAllowed());
                 break;
             default:
                 break;
@@ -656,7 +661,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
                     RecordMsg recordMsg = new RecordMsg(getMediaRoomUuid(), getLocalUserInfo(),
                             getString(R.string.replay_link), EduChatMsgType.Text.getValue());
                     recordMsg.isMe = true;
-//                    chatRoomFragment.addMessage(recordMsg);
+                    chatRoomFragment.addMessage(recordMsg);
                 }
             }
         }
@@ -681,7 +686,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     public void onLocalUserUpdated(@NotNull EduUserEvent userEvent, @NotNull EduUserStateChangeType type) {
         /**更新用户信息*/
         EduUserInfo userInfo = userEvent.getModifiedUser();
-//        chatRoomFragment.setMuteLocal(!userInfo.isChatAllowed());
+        chatRoomFragment.setMuteLocal(!userInfo.isChatAllowed());
     }
 
     @Override
