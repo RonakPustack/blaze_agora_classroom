@@ -163,8 +163,10 @@ public class OneToTwoClassActivity extends BaseClassActivity {
      */
     @Override
     public void onRoomChatMessageReceived(@NotNull EduChatMsg eduChatMsg, @NotNull EduRoom classRoom) {
-        Log.d(TAG, "onRoomChatMessageReceived 4 : method call");
-        messageIndicator.setSelected(true);
+        super.onRoomChatMessageReceived(eduChatMsg, classRoom);
+        if(!layout_im.isShown()){
+            messageIndicator.setSelected(true);
+        }
     }
 
     /**

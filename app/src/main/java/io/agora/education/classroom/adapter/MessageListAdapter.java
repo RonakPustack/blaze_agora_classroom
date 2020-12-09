@@ -15,8 +15,6 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.agora.education.R;
 import io.agora.education.classroom.bean.msg.ChannelMsg;
 import io.agora.education.classroom.bean.record.RecordMsg;
@@ -42,14 +40,13 @@ public class MessageListAdapter extends BaseProviderMultiAdapter<ChannelMsg.Chat
     }
 
     class ViewHolder extends BaseViewHolder {
-//        @BindView(R.id.tv_name)
         TextView tv_name;
-//        @BindView(R.id.tv_content)
         TextView tv_content;
 
         ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            tv_name = itemView.findViewById(R.id.tv_name);
+            tv_content = itemView.findViewById(R.id.tv_content);
         }
 
         void convert(ChannelMsg.ChatMsg msg) {
