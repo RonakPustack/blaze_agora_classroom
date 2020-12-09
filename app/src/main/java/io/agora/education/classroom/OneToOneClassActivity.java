@@ -37,11 +37,8 @@ import io.agora.education.classroom.widget.RtcVideoView;
 public class OneToOneClassActivity extends BaseClassActivity {
     private static final String TAG = OneToOneClassActivity.class.getSimpleName();
 
-//    @BindView(R.id.layout_video_teacher)
     protected RtcVideoView video_teacher;
-//    @BindView(R.id.layout_video_student)
     protected RtcVideoView video_student;
-//    @BindView(R.id.layout_im)
     protected View layout_im;
 
     @Override
