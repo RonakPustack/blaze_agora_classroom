@@ -97,7 +97,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
     protected FrameLayout layout_share_video;
 
     protected WhiteBoardFragment whiteboardFragment = new WhiteBoardFragment();
-//    protected ChatRoomFragment chatRoomFragment = new ChatRoomFragment();
+    protected ChatRoomFragment chatRoomFragment = new ChatRoomFragment();
 
     protected RoomEntry roomEntry;
     private volatile boolean isJoining = false, joinSuccess = false;
@@ -129,6 +129,12 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         layout_whiteboard = findViewById(R.id.layout_whiteboard);
         layout_share_video = findViewById(R.id.layout_share_video);
 
+        if(layout_whiteboard != null){
+            Log.d(TAG, "layout_white is not null");
+        }else{
+            Log.d(TAG, "layout_white is null");
+        }
+
         if (getClassType() == RoomType.ONE_ON_ONE.getValue()) {
             whiteboardFragment.setInputWhileFollow(true);
         }
@@ -138,13 +144,13 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
         title_view.setTitle(getMediaRoomName());
         getSupportFragmentManager().beginTransaction()
                 .remove(whiteboardFragment)
-//                .remove(chatRoomFragment)
+                .remove(chatRoomFragment)
                 .commitNowAllowingStateLoss();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.layout_whiteboard, whiteboardFragment)
-//                .add(R.id.layout_chat_room, chatRoomFragment)
+                .add(R.id.layout_chat_room, chatRoomFragment)
                 .show(whiteboardFragment)
-//                .show(chatRoomFragment)
+                .show(chatRoomFragment)
                 .commitNowAllowingStateLoss();
     }
 
