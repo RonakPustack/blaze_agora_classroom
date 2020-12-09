@@ -20,8 +20,8 @@ public class NavigationHelper {
         return intent;
     }
 
-    public static Intent goTosecondMainActivity(Context context, HashMap roomCredentials) {
-        Intent intent = new Intent(context, MainActivity.class);
+    public static Intent goToSecondMainActivity(Context context, HashMap roomCredentials) {
+        Intent intent = new Intent(context, MainActivity2.class);
 
         String userName = (String) roomCredentials.get("user_name");
         String roomId = (String) roomCredentials.get("room_id");
