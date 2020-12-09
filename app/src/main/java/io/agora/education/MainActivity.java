@@ -64,7 +64,7 @@ public class MainActivity extends EduApplication {
 //    @BindView(R.id.card_room_type)
 //    protected CardView card_room_type;
 
-    protected ProgressBar progressBar;
+//    protected ProgressBar progressBar;
     protected TextView textView;
 
     private String url;
@@ -115,12 +115,12 @@ public class MainActivity extends EduApplication {
 //            et_your_name.setText("123");
 //        }
 
-        progressBar = findViewById(R.id.progressBarMainActivity);
-        textView = findViewById(R.id.pleaseWaitTV);
-
-        if(textView != null){
-            textView.setText("Please Wait...");
-        }
+//        progressBar = findViewById(R.id.progressBarMainActivity);
+//        textView = findViewById(R.id.pleaseWaitTV);
+//
+//        if(textView != null){
+//            textView.setText("Please Wait...");
+//        }
     }
 
     @Override
