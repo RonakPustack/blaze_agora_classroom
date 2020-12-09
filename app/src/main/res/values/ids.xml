@@ -5,4 +5,5 @@
     <item name="tool_text" type="id" />
     <item name="tool_eraser" type="id" />
     <item name="tool_color" type="id" />
+    <item name="line_vertical_end" type="id">line_vertical_end</item>
 </resources>

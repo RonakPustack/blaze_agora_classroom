@@ -16,7 +16,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
-        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".classroom.OneToTwoClassActivity"></activity>
+        <activity android:name=".MainActivity2" />
         <activity
             android:name=".classroom.OneToOneClassActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"

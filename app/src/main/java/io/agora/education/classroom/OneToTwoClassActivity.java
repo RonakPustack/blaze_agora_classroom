@@ -1,10 +1,12 @@
 package io.agora.education.classroom;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
+
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-
-import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -13,8 +15,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.agora.education.R;
 import io.agora.education.api.EduCallback;
 import io.agora.education.api.message.EduChatMsg;
@@ -33,13 +33,14 @@ import io.agora.education.api.user.data.EduUserStateChangeType;
 import io.agora.education.classroom.bean.channel.Room;
 import io.agora.education.classroom.widget.RtcVideoView;
 
+public class OneToTwoClassActivity extends BaseClassActivity {
 
-public class OneToOneClassActivity extends BaseClassActivity {
     private static final String TAG = OneToOneClassActivity.class.getSimpleName();
 
     protected RtcVideoView video_teacher;
     protected RtcVideoView video_student;
     protected View layout_im;
+    protected AppCompatImageView messageIndicator;
 
     @Override
     protected int getLayoutResId() {
@@ -55,6 +56,7 @@ public class OneToOneClassActivity extends BaseClassActivity {
         video_teacher = findViewById(R.id.layout_video_teacher);
         video_student = findViewById(R.id.layout_video_student);
         layout_im = findViewById(R.id.layout_im);
+        messageIndicator = findViewById(R.id.message_indicator);
 
         joinRoom(getMainEduRoom(), roomEntry.getUserName(), roomEntry.getUserUuid(), true, true, true,
                 new EduCallback<EduStudent>() {
@@ -82,8 +84,8 @@ public class OneToOneClassActivity extends BaseClassActivity {
 
         if(video_student != null){
             video_student.init(R.layout.layout_video_one2one_class, true);
-            video_student.setOnClickAudioListener(v -> OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
-            video_student.setOnClickVideoListener(v -> OneToOneClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
+            video_student.setOnClickAudioListener(v -> OneToTwoClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
+            video_student.setOnClickVideoListener(v -> OneToTwoClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
         }else{
             Log.d(TAG, "video_student is null");
         }
@@ -95,9 +97,16 @@ public class OneToOneClassActivity extends BaseClassActivity {
     }
 
     public void onFloatClick(View view) {
-        boolean isSelected = view.isSelected();
-        view.setSelected(!isSelected);
-        layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+        boolean isSelected = !view.isSelected();
+
+        view.setSelected(isSelected);
+
+        if(isSelected){
+            messageIndicator.setSelected(false);
+            layout_im.setVisibility(View.VISIBLE);
+        }else{
+            layout_im.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -154,7 +163,8 @@ public class OneToOneClassActivity extends BaseClassActivity {
      */
     @Override
     public void onRoomChatMessageReceived(@NotNull EduChatMsg eduChatMsg, @NotNull EduRoom classRoom) {
-        super.onRoomChatMessageReceived(eduChatMsg, classRoom);
+        Log.d(TAG, "onRoomChatMessageReceived 4 : method call");
+        messageIndicator.setSelected(true);
     }
 
     /**

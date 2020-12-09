@@ -48,9 +48,10 @@
         android:layout_marginEnd="125dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_view"
-        app:layout_constraintVertical_bias="0.51">
+        app:layout_constraintVertical_bias="1.0">
 
         <!--        <FrameLayout-->
         <!--            android:id="@+id/layout_chat_room"-->
@@ -75,6 +76,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_view"
+        android:visibility="gone"
         >
 
         <View
@@ -109,18 +111,43 @@
             android:layout_below="@id/line_horizontal"
             android:layout_toEndOf="@id/line_vertical" />
 
+        <View
+            android:id="@+id/line_vertical_end"
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="match_parent"
+            android:background="@color/gray_DBE2E5"
+            android:layout_toEndOf="@id/layout_chat_room"
+            android:layout_marginLeft="-2dp"
+            />
+
     </RelativeLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_float"
-        android:layout_width="@dimen/dp_30"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_5"
-        android:rotationY="180"
-        android:src="@drawable/ic_float"
-        android:background="@color/white"
-        android:onClick="onFloatClick"
+    <RelativeLayout
+        android:id="@+id/layout_message_indicator"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_view" />
+        app:layout_constraintTop_toBottomOf="@+id/title_view">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_float"
+            android:layout_width="@dimen/dp_23"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:onClick="onFloatClick"
+            android:rotationY="180"
+            android:src="@drawable/ic_float" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/message_indicator"
+            android:layout_width="@dimen/dp_6"
+            android:layout_height="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_alignEnd="@+id/iv_float"
+            android:src="@drawable/ic_indicator" />
+
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
