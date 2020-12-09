@@ -63,6 +63,9 @@ public class ChatRoomFragment extends BaseFragment implements OnItemChildClickLi
 
     @Override
     protected void initView() {
+        rcv_msg = this.view.findViewById(R.id.rcv_msg);
+        edit_send_msg = this.view.findViewById(R.id.edit_send_msg);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setStackFromEnd(true);
         rcv_msg.setLayoutManager(layoutManager);
