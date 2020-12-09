@@ -44,7 +44,7 @@ public class OneToTwoClassActivity extends BaseClassActivity {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_one2one_class;
+        return R.layout.activity_one_to_two_class;
     }
 
     @Override
