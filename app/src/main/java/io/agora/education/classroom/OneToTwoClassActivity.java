@@ -41,6 +41,7 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     protected RtcVideoView video_student;
     protected View layout_im;
     protected AppCompatImageView messageIndicator;
+    protected AppCompatImageView iv_float;
 
     @Override
     protected int getLayoutResId() {
@@ -57,6 +58,7 @@ public class OneToTwoClassActivity extends BaseClassActivity {
         video_student = findViewById(R.id.layout_video_student);
         layout_im = findViewById(R.id.layout_im);
         messageIndicator = findViewById(R.id.message_indicator);
+        iv_float = findViewById(R.id.iv_float);
 
         joinRoom(getMainEduRoom(), roomEntry.getUserName(), roomEntry.getUserUuid(), true, true, true,
                 new EduCallback<EduStudent>() {
@@ -76,17 +78,17 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     protected void initView() {
         super.initView();
 
-        if(video_teacher != null){
+        if (video_teacher != null) {
             video_teacher.init(R.layout.layout_video_one2one_class, true);
-        }else{
+        } else {
             Log.d(TAG, "video_teacher is null");
         }
 
-        if(video_student != null){
+        if (video_student != null) {
             video_student.init(R.layout.layout_video_one2one_class, true);
             video_student.setOnClickAudioListener(v -> OneToTwoClassActivity.this.muteLocalAudio(!video_student.isAudioMuted()));
             video_student.setOnClickVideoListener(v -> OneToTwoClassActivity.this.muteLocalVideo(!video_student.isVideoMuted()));
-        }else{
+        } else {
             Log.d(TAG, "video_student is null");
         }
     }
@@ -102,7 +104,6 @@ public class OneToTwoClassActivity extends BaseClassActivity {
         view.setSelected(isSelected);
 
         if(isSelected){
-            messageIndicator.setSelected(false);
             layout_im.setVisibility(View.VISIBLE);
         }else{
             layout_im.setVisibility(View.INVISIBLE);
@@ -164,10 +165,22 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     @Override
     public void onRoomChatMessageReceived(@NotNull EduChatMsg eduChatMsg, @NotNull EduRoom classRoom) {
         super.onRoomChatMessageReceived(eduChatMsg, classRoom);
-        if(!layout_im.isShown()){
-            layout_im.setVisibility(View.VISIBLE);
-        }
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                // Stuff that updates the UI
+                if(!layout_im.isShown()){
+                    iv_float.setSelected(true);
+                    layout_im.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
     }
+
 
     /**
      * 私聊消息回调
@@ -219,7 +232,8 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onRemoteStreamsAdded(@NotNull List<EduStreamEvent> streamEvents, @NotNull EduRoom classRoom) {
+    public void onRemoteStreamsAdded
+            (@NotNull List<EduStreamEvent> streamEvents, @NotNull EduRoom classRoom) {
         super.onRemoteStreamsAdded(streamEvents, classRoom);
         for (EduStreamEvent streamEvent : streamEvents) {
             EduStreamInfo streamInfo = streamEvent.getModifiedStream();
@@ -247,7 +261,8 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onRemoteStreamUpdated(@NotNull EduStreamEvent streamEvent, @NotNull EduStreamStateChangeType type,
+    public void onRemoteStreamUpdated(@NotNull EduStreamEvent
+                                              streamEvent, @NotNull EduStreamStateChangeType type,
                                       @NotNull EduRoom classRoom) {
         super.onRemoteStreamUpdated(streamEvent, type, classRoom);
         EduStreamInfo streamInfo = streamEvent.getModifiedStream();
@@ -264,7 +279,8 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onRemoteStreamsRemoved(@NotNull List<EduStreamEvent> streamEvents, @NotNull EduRoom classRoom) {
+    public void onRemoteStreamsRemoved
+            (@NotNull List<EduStreamEvent> streamEvents, @NotNull EduRoom classRoom) {
         super.onRemoteStreamsRemoved(streamEvents, classRoom);
         for (EduStreamEvent streamEvent : streamEvents) {
             EduStreamInfo streamInfo = streamEvent.getModifiedStream();
@@ -291,13 +307,15 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onRoomStatusChanged(@NotNull EduRoomChangeType event, @NotNull EduUserInfo operatorUser,
+    public void onRoomStatusChanged(@NotNull EduRoomChangeType event, @NotNull EduUserInfo
+            operatorUser,
                                     @NotNull EduRoom classRoom) {
         super.onRoomStatusChanged(event, operatorUser, classRoom);
     }
 
     @Override
-    public void onRoomPropertyChanged(@NotNull EduRoom classRoom, @Nullable Map<String, Object> cause) {
+    public void onRoomPropertyChanged(@NotNull EduRoom
+                                              classRoom, @Nullable Map<String, Object> cause) {
         super.onRoomPropertyChanged(classRoom, cause);
 //        runOnUiThread(() -> {
 //            /**小班课，默认学生可以针对白板进行输入*/
@@ -307,29 +325,34 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onRemoteUserPropertyUpdated(@NotNull EduUserInfo userInfo, @NotNull EduRoom classRoom,
+    public void onRemoteUserPropertyUpdated(@NotNull EduUserInfo userInfo, @NotNull EduRoom
+            classRoom,
                                             @Nullable Map<String, Object> cause) {
     }
 
     @Override
-    public void onNetworkQualityChanged(@NotNull NetworkQuality quality, @NotNull EduUserInfo user,
+    public void onNetworkQualityChanged(@NotNull NetworkQuality quality, @NotNull EduUserInfo
+            user,
                                         @NotNull EduRoom classRoom) {
         super.onNetworkQualityChanged(quality, user, classRoom);
         title_view.setNetworkQuality(quality);
     }
 
     @Override
-    public void onConnectionStateChanged(@NotNull ConnectionState state, @NotNull EduRoom classRoom) {
+    public void onConnectionStateChanged(@NotNull ConnectionState state, @NotNull EduRoom
+            classRoom) {
         super.onConnectionStateChanged(state, classRoom);
     }
 
     @Override
-    public void onLocalUserUpdated(@NotNull EduUserEvent userEvent, @NotNull EduUserStateChangeType type) {
+    public void onLocalUserUpdated(@NotNull EduUserEvent
+                                           userEvent, @NotNull EduUserStateChangeType type) {
         super.onLocalUserUpdated(userEvent, type);
     }
 
     @Override
-    public void onLocalUserPropertyUpdated(@NotNull EduUserInfo userInfo, @Nullable Map<String, Object> cause) {
+    public void onLocalUserPropertyUpdated(@NotNull EduUserInfo
+                                                   userInfo, @Nullable Map<String, Object> cause) {
         super.onLocalUserPropertyUpdated(userInfo, cause);
     }
 
@@ -344,7 +367,8 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     }
 
     @Override
-    public void onLocalStreamUpdated(@NotNull EduStreamEvent streamEvent, @NotNull EduStreamStateChangeType type) {
+    public void onLocalStreamUpdated(@NotNull EduStreamEvent
+                                             streamEvent, @NotNull EduStreamStateChangeType type) {
         super.onLocalStreamUpdated(streamEvent, type);
         EduStreamInfo streamInfo = streamEvent.getModifiedStream();
         video_student.muteVideo(!streamInfo.getHasVideo());
