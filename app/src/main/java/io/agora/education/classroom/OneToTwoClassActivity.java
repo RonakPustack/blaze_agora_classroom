@@ -165,7 +165,7 @@ public class OneToTwoClassActivity extends BaseClassActivity {
     public void onRoomChatMessageReceived(@NotNull EduChatMsg eduChatMsg, @NotNull EduRoom classRoom) {
         super.onRoomChatMessageReceived(eduChatMsg, classRoom);
         if(!layout_im.isShown()){
-            messageIndicator.setSelected(true);
+            layout_im.setVisibility(View.VISIBLE);
         }
     }
 
