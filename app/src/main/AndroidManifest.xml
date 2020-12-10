@@ -16,7 +16,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
-        <activity android:name=".classroom.OneToTwoClassActivity"></activity>
+        <activity android:name=".classroom.OneToOneMeeting"></activity>
+        <activity android:name=".classroom.OneToTwoClassActivity" />
         <activity android:name=".MainActivity2" />
         <activity
             android:name=".classroom.OneToOneClassActivity"

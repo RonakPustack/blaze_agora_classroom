@@ -27,6 +27,7 @@ import io.agora.education.classroom.BaseClassActivity;
 import io.agora.education.classroom.BreakoutClassActivity;
 import io.agora.education.classroom.LargeClassActivity;
 import io.agora.education.classroom.OneToOneClassActivity;
+import io.agora.education.classroom.OneToOneMeeting;
 import io.agora.education.classroom.OneToTwoClassActivity;
 import io.agora.education.classroom.SmallClassActivity;
 import io.agora.education.classroom.bean.channel.Room;
@@ -268,7 +269,7 @@ public class MainActivity2 extends EduApplication {
 
         Intent intent = new Intent();
         if (roomType == RoomType.ONE_ON_ONE.getValue()) {
-            intent.setClass(this, OneToTwoClassActivity.class);
+            intent.setClass(this, OneToOneMeeting.class);
         } else if (roomType == RoomType.SMALL_CLASS.getValue()) {
             intent.setClass(this, SmallClassActivity.class);
         } else if (roomType == RoomType.LARGE_CLASS.getValue()) {
