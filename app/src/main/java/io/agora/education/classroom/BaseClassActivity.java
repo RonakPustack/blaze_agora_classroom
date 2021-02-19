@@ -421,7 +421,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
 
     public final String getLocalUserName() {
         String localUserName = getMyMediaRoom().getLocalUser().getUserInfo().getUserName();
-        return localUserName + "'s Stream";
+        return localUserName + "'s Session";
     }
 
     /**
