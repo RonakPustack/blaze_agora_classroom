@@ -100,6 +100,10 @@ public class OneToOneClassActivity extends BaseClassActivity {
         layout_im.setVisibility(isSelected ? View.VISIBLE : View.GONE);
     }
 
+    public void onAudioViewClick(View view) {
+        OneToOneClassActivity.this.muteLocalAudio(!video_student.isAudioMuted());
+    }
+
     @Override
     public void onRemoteUsersInitialized(@NotNull List<? extends EduUserInfo> users, @NotNull EduRoom classRoom) {
         super.onRemoteUsersInitialized(users, classRoom);

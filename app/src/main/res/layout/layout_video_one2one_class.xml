@@ -56,8 +56,9 @@
 
     <io.agora.education.classroom.widget.RtcAudioView
         android:id="@+id/ic_audio"
-        android:layout_width="@dimen/dp_24"
-        android:layout_height="@dimen/dp_24"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:onClick="onAudioViewClick"
         android:layout_marginEnd="@dimen/dp_3"
         app:layout_constraintBottom_toBottomOf="@id/view_bg_info"
         app:layout_constraintEnd_toStartOf="@id/ic_video"
