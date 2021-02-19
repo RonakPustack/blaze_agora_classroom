@@ -152,7 +152,7 @@ public class RtcVideoView extends ConstraintLayout {
 //    }
 
     public void setOnClickAudioListener(OnClickListener listener) {
-//        ic_audio.setOnClickListener(listener);
+        ic_audio.setOnClickListener(listener);
     }
 
     public void setOnClickVideoListener(OnClickListener listener) {
