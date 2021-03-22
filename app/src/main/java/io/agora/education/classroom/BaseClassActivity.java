@@ -176,7 +176,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
             return;
         }
         isJoining = true;
-        RoomJoinOptions options = new RoomJoinOptions(yourUuid, yourNameStr, EduUserRole.STUDENT,
+        RoomJoinOptions options = new RoomJoinOptions(yourUuid, yourNameStr, EduUserRole.TEACHER,
                 new RoomMediaOptions(autoSubscribe, autoPublish));
         eduRoom.joinClassroom(options, new EduCallback<EduStudent>() {
             @Override
@@ -421,7 +421,7 @@ public abstract class BaseClassActivity extends BaseActivity implements EduRoomE
 
     public final String getLocalUserName() {
         String localUserName = getMyMediaRoom().getLocalUser().getUserInfo().getUserName();
-        return localUserName + "'s Session + RONAK";
+        return localUserName + "'s Session";
     }
 
     /**
