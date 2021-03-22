@@ -155,7 +155,7 @@ public class MainActivity2 extends EduApplication {
     private void joinChannelAttempt(String roomName, String userName, String classRoomType) {
         /**userUuid和roomUuid需用户自己指定，并保证唯一性*/
         int roomType = getClassType(classRoomType);
-        String userUuid = userName + EduUserRole.STUDENT.getValue();
+        String userUuid = userName + EduUserRole.TEACHER.getValue();
         String roomUuid = roomName + roomType;
 
         Log.d(TAG, "Join channel method attempt");
@@ -187,7 +187,7 @@ public class MainActivity2 extends EduApplication {
         String CLASS_ROOM_TYPE = "One to One Classroom";
         int roomType = getClassType(CLASS_ROOM_TYPE);
 
-        String userUuid = USER_NAME + EduUserRole.STUDENT.getValue();
+        String userUuid = USER_NAME + EduUserRole.TEACHER.getValue();
         String roomUuid = ROOM_NAME + roomType;
 
         EduManagerOptions options = new EduManagerOptions(this, getAppId(), userUuid, USER_NAME);
